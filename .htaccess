@@ -1,0 +1,10 @@
+
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://pkaard.com/$1 [R=301,L,NE]
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_URI} !/public/
+  RewriteRule (.*) public/$1 [L]
+</IfModule>

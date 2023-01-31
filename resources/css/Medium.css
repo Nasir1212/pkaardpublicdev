@@ -1,0 +1,16 @@
+@media screen and (max-width: 1289px) and (min-width: 990px) {}
+@media screen and (max-width: 980px){
+    .header_search_section input {
+        width: 11.5rem !important;
+    }
+    .logo_section {
+        width: 5rem;
+    }
+}
+
+@media (min-width: 992px){
+  
+}
+
+@media (min-width: 1200px){}
+    

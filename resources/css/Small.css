@@ -1,0 +1,217 @@
+@media screen and (max-width: 767px) {
+   .dual_section_sub_navitaion_and_main_section_countainer {
+    grid-template-columns: 1fr;
+}
+
+
+  .sub_navigation_container {
+    display: none ;
+    position: fixed;
+    z-index: 10000;
+    left: 1px;
+    top: 7.5rem;
+    background: white;
+    height: 100%;
+    overflow: auto;
+    margin-top: 0rem;
+  }
+  .nav_bottom_section {
+    position: fixed;
+    right: 7px;
+    top: 103px;
+    height: 100%;
+    width: 16rem;
+    display: none !important;
+}
+
+
+.nav_bottom_section ul {
+    flex-direction: column;
+    overflow-y: auto;
+    height: 19rem !important;
+}
+.nav_bottom_section ul li {
+    width: 100%;
+   
+}
+.nav_bottom_section ul li a {
+    margin-left: 6px;
+}
+
+.footer_section {
+  
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 2.4rem;
+    margin-left: 3rem;
+}
+
+.footer_section .footer_logo {
+    width: 10rem;
+}
+
+.footer_section div:nth-child(1) {
+    grid-area: 3;
+}
+
+/* .footer_section div:nth-child(4) {
+    grid-area: 1;
+} */
+
+.header_middle{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.header_search_section {
+    grid-area: 2 /span 3;
+}
+
+.header_search_section {
+   
+    border: none;
+   
+}
+
+
+.header_search_bar {
+    border: 1px solid #0000002e;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 65%;
+    border-right: none;
+}
+    
+.search_btn {
+    transform: translateX(4px);
+}
+
+.header_search_section input {
+   
+    width: 87% !important;
+}
+
+.search_btn {
+    width: 11%;
+ 
+}
+
+.mobile_nav_icon{
+    display: flex;
+}
+
+
+.registation_boxes{
+  
+  grid-template-columns: repeat(1,1fr);
+  
+  }
+
+  .registation_box_container {
+    width: 18rem;
+    overflow: hidden;
+    margin: 0 auto;
+   
+}
+  
+
+}
+@media screen and (max-width: 567px) {
+    .box_container {
+     
+        grid-template-columns: 1fr 1fr 1fr;
+      
+    } 
+
+    .header_contact_section{
+        display: none !important;
+    }
+    .header_middle {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2px;
+        row-gap: 1rem;
+    }
+
+    .header_search_section input {
+        width: 85% !important;
+    }
+
+    .header_search_bar {
+        width: 14rem;
+    }
+
+    .sub_nav_icon {
+        top: 4rem;
+        left: 1rem;
+    }
+      .main_nav_icon {
+        top: 4rem;
+        right: 0rem;
+    }
+
+    .nav_bottom_section {
+        top: 94px;
+    }
+
+    .invoic_customer_invoice_no {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
+
+@media screen and (max-width: 543px){
+
+    
+  
+    .box_container {
+     
+        grid-template-columns: 1fr 1fr;
+      
+    } 
+
+    .search_btn {
+        width: 17%;
+    }
+
+    .header_search_section input {
+        width: 80% !important;
+    }
+
+    .registation_box_container {
+        width: 18rem;
+        overflow: hidden;
+        margin: 0px !important;
+        display: flex;
+        justify-content: center;
+    }
+   
+    .login_container {
+        width: 17rem;
+    }
+}
+
+@media screen and (max-width: 455px){
+   
+    .footer_section {
+        margin-left: 3px !important;
+    }
+    
+}
+@media screen and (max-width: 360px) {
+    .search_btn {
+        width: 17%;
+    }
+
+    .header_search_section input {
+        width: 79% !important;
+    }
+
+    .header_search_bar {
+        width: 14rem;
+    }
+
+    
+    
+}
+
