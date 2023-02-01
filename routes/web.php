@@ -19,6 +19,8 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
+Route::get('/index','App\Http\Controllers\HomeController@index');
+
 
 Route::get('/', function () {
     return view('home_view');

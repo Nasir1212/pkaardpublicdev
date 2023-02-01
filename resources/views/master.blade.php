@@ -27,6 +27,17 @@
 </head>
 <body>
 
+    <script>
+        window.onload = function(){
+            fetch(`index`)
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            })
+       
+        }
+    </script>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col">
