@@ -5,7 +5,7 @@
 <main class="ml-3">
                     
     <div class="pkaard_defination">
-        <p><h4 class="d-inline mr-2">𝗣𝗸𝗮𝗮𝗿𝗱</h4>is a loyalty card which is provides
+        <p><h4 class="d-inline mr-2">𝗣𝗸𝗮𝗮𝗿𝗱</h4>is a loyalty card which is providing
             privilege service making your life easier from the
             moment you wake up to till the night. Card
             holders can avail special discounts and offers
