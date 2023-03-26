@@ -2,8 +2,144 @@
 
 @section('content')
 
-
+<style>
+    .drop_down_bottom {
+  position: absolute;
+  background: white;
+  width: 100%;
+  border: 0.1px solid #0000002e;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2px;
+    }
+    .drop_down_bottom ul{
+        overflow-y: scroll;
+        width: 100%;
+        height: 20rem;
+    }
+    .drop_down_bottom ul li {
+    cursor: pointer;
+    margin-bottom: 4px;
+    background: #0000000d;
+    padding: 1rem;
+}
+.drop_down_bottom ul li:hover{
+    background: #00000045;
+}
+</style>
 <div class="slideing_box_container">
+
+    
+<section class="search_home_option">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 col-md-6">
+            <div class="form-group" style="position:relative" data-select2-id="29">
+             <label for="">Select Category</label>
+                <input type="text" class="form-control" onkeyup="search_category(this);" placeholder="Select Category">
+                <div class="drop_down_bottom">
+                    <ul id="drop_list_1">
+                        <li>Travel</li>
+                        <li>Hotel & Resort</li>
+
+                        <li>Entertainment</li>
+
+                        <li>Constructions & Constructor</li>
+
+                        <li>Travel</li>
+                        <li>Hotel & Resort</li>
+
+                        <li>Entertainment</li>
+
+                        <li>Constructions & Constructor</li>
+
+                        <li>A</li>
+                        <li>A</li>
+
+                        <li>A</li>
+
+                        <li>A</li>
+
+                        <li>A</li>
+                        <li>A</li>
+
+                        <li>A</li>
+
+                        <li>A</li>
+
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+               
+              </div>
+<script>
+    function search_category (evt){
+      let input_value =   evt.value.toUpperCase();
+      
+      let li = drop_list_1.getElementsByTagName('li')
+    
+
+    for (let i = 0; i < li.length; i++) {
+   
+    if (li[i].innerHTML.toUpperCase().indexOf(input_value) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+
+    }
+</script>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-md-6">
+            <div class="form-group" style="position:relative" data-select2-id="29">
+                <label for="">Select Category</label>
+                   <input type="text" class="form-control" onkeyup="search_category(this);" placeholder="Select Category">
+                   <div class="drop_down_bottom">
+                       <ul id="drop_list_1">
+                           <li>Travel</li>
+                           <li>Hotel & Resort</li>
+   
+                           <li>Entertainment</li>
+   
+                           <li>Constructions & Constructor</li>
+   
+                           <li>Travel</li>
+                           <li>Hotel & Resort</li>
+   
+                           <li>Entertainment</li>
+   
+                           <li>Constructions & Constructor</li>
+   
+                           <li>A</li>
+                           <li>A</li>
+   
+                           <li>A</li>
+   
+                           <li>A</li>
+   
+                           <li>A</li>
+                           <li>A</li>
+   
+                           <li>A</li>
+   
+                           <li>A</li>
+   
+                       </ul>
+                   </div>
+                   <div>
+   
+                   </div>
+                  
+                 </div>
+          
+        </div>
+    </div>
+   
+</section>
+
     <div class="top_slider_container " id="slider_top">
         <div class="slider_col slider_col_top">
             <img src="./assets/images/sliding_to_1.jpeg" alt="">
@@ -222,6 +358,13 @@ function left_bottom_slider(value){
 bottom_left_slider_col[value-1].style.display='block'
 }
 
+ //Initialize Select2 Elements
+//  $('.select2').select2()
+
+ //Initialize Select2 Elements
+ $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
 
 </script>
  @endsection;
