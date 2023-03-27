@@ -3,15 +3,17 @@
 @section('content')
 
 <style>
-    .drop_down_bottom {
-  position: absolute;
-  background: white;
-  width: 100%;
-  border: 0.1px solid #0000002e;
-  padding: 1rem;
-  border-radius: 5px;
-  margin-top: 2px;
-    }
+   .drop_down_bottom {
+	position: absolute;
+	background: white;
+	width: 100%;
+	border: 0.1px solid #0000002e;
+	padding: 1rem;
+	border-radius: 5px;
+	margin-top: 2px;
+	z-index: 2;
+    
+}
     .drop_down_bottom ul{
         overflow-y: scroll;
         width: 100%;
@@ -26,119 +28,28 @@
 .drop_down_bottom ul li:hover{
     background: #00000045;
 }
+.custom_form {
+	height: 5rem;
+	border-radius: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 455px){
+.drop_down_bottom {  
+width: 94%;
+position: fixed;
+z-index: 200;
+top: 11px;
+margin: 0 -1.5rem;
+}
+
+.dist{
+    margin: 0px -12rem !important;
+}
+    }
+
 </style>
 <div class="slideing_box_container">
-
-    
-<section class="search_home_option">
-    <div class="row">
-        <div class="col-sm-12 col-lg-6 col-md-6">
-            <div class="form-group" style="position:relative" data-select2-id="29">
-             <label for="">Select Category</label>
-                <input type="text" class="form-control" onkeyup="search_category(this);" placeholder="Select Category">
-                <div class="drop_down_bottom">
-                    <ul id="drop_list_1">
-                        <li>Travel</li>
-                        <li>Hotel & Resort</li>
-
-                        <li>Entertainment</li>
-
-                        <li>Constructions & Constructor</li>
-
-                        <li>Travel</li>
-                        <li>Hotel & Resort</li>
-
-                        <li>Entertainment</li>
-
-                        <li>Constructions & Constructor</li>
-
-                        <li>A</li>
-                        <li>A</li>
-
-                        <li>A</li>
-
-                        <li>A</li>
-
-                        <li>A</li>
-                        <li>A</li>
-
-                        <li>A</li>
-
-                        <li>A</li>
-
-                    </ul>
-                </div>
-                <div>
-
-                </div>
-               
-              </div>
-<script>
-    function search_category (evt){
-      let input_value =   evt.value.toUpperCase();
-      
-      let li = drop_list_1.getElementsByTagName('li')
-    
-
-    for (let i = 0; i < li.length; i++) {
-   
-    if (li[i].innerHTML.toUpperCase().indexOf(input_value) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-
-
-    }
-</script>
-        </div>
-        <div class="col-sm-12 col-lg-6 col-md-6">
-            <div class="form-group" style="position:relative" data-select2-id="29">
-                <label for="">Select Category</label>
-                   <input type="text" class="form-control" onkeyup="search_category(this);" placeholder="Select Category">
-                   <div class="drop_down_bottom">
-                       <ul id="drop_list_1">
-                           <li>Travel</li>
-                           <li>Hotel & Resort</li>
-   
-                           <li>Entertainment</li>
-   
-                           <li>Constructions & Constructor</li>
-   
-                           <li>Travel</li>
-                           <li>Hotel & Resort</li>
-   
-                           <li>Entertainment</li>
-   
-                           <li>Constructions & Constructor</li>
-   
-                           <li>A</li>
-                           <li>A</li>
-   
-                           <li>A</li>
-   
-                           <li>A</li>
-   
-                           <li>A</li>
-                           <li>A</li>
-   
-                           <li>A</li>
-   
-                           <li>A</li>
-   
-                       </ul>
-                   </div>
-                   <div>
-   
-                   </div>
-                  
-                 </div>
-          
-        </div>
-    </div>
-   
-</section>
 
     <div class="top_slider_container " id="slider_top">
         <div class="slider_col slider_col_top">
@@ -190,6 +101,57 @@
     
 
 </div>
+</div>
+
+<div>
+    
+    
+<section class="search_home_option card">
+    <div class="row card-body">
+        <div class="col-6">
+            <div class="form-group" style="position:relative" data-select2-id="29">
+             <label for="">Select Category</label>
+                <input type="text" class="form-control custom_form" onfocusin="focusin(this)" onfocusout="focusout(this)" onkeyup="search_category(this);" placeholder="Select Category">
+                <div class="drop_down_bottom d-none">
+                    <ul id="drop_list_1">
+                        <li>Travel</li>
+                        <li>Hotel & Resort</li>
+                        <li>Entertainment</li>
+                        <li>Constructions & Constructor</li>
+                        <li>Travel</li>
+                        <li>Hotel & Resort</li>
+                        <li>Entertainment</li>
+                        <li>Constructions & Constructor</li>
+                    </ul>
+                </div>
+               
+              </div>
+
+        </div>
+        <div class="col-6">
+            <div class="form-group" style="position:relative" data-select2-id="29">
+                <label for="">Select District</label>
+                   <input type="text" class="form-control custom_form"  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select Category">
+                   <div class="drop_down_bottom  dist d-none ">
+                       <ul id="drop_list_2">
+                             
+                       </ul>
+                   </div>
+                  
+                 </div>
+          
+        </div>
+
+        <div class="col-12">
+            <div class="w-100 d-flex justify-content-center mb-1" >
+               
+                 <button class="btn btn-info btn-block w-50">Search </button>
+          
+        </div>
+    </div>
+   
+</section>
+
 </div>
 
 <div class="box_container">
@@ -358,13 +320,83 @@ function left_bottom_slider(value){
 bottom_left_slider_col[value-1].style.display='block'
 }
 
- //Initialize Select2 Elements
-//  $('.select2').select2()
 
- //Initialize Select2 Elements
- $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
+
+    function search_category (evt){
+      let input_value =   evt.value.toUpperCase();
+      
+      let li = drop_list_1.getElementsByTagName('li')
+    
+
+    for (let i = 0; i < li.length; i++) {
+   
+    if (li[i].innerHTML.toUpperCase().indexOf(input_value) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+
+    }
+
+
+    function search_district (evt){
+    let input_value =   evt.value.toUpperCase();
+    let li = drop_list_2.getElementsByTagName('li')
+    for (let i = 0; i < li.length; i++) {
+   
+    if (li[i].innerHTML.toUpperCase().indexOf(input_value) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+    }
+
+
+        function load_district(){
+        let li = '';
+        District.forEach(function (data){
+        li  += `<li  data-id="${data['id']}"  value="${data['name']}">${data['name']}</li>`;
+
+        })
+        drop_list_2.innerHTML = li
+    }
+
+    load_district();
+
+   function focusin (evt){
+    console.log(evt.nextElementSibling)
+    evt.nextElementSibling.classList.remove("d-none");
+   }
+
+   function focusout(evt){
+    console.log(evt.nextElementSibling)
+    // evt.nextElementSibling.classList.add("d-none");
+
+   console.log( evt.nextElementSibling.children[0].children)
+
+         let li =   evt.nextElementSibling.children[0].children
+console.log(li[0].tagName)
+
+        for (let i = 0; i < li.length; i++) {
+   
+
+
+  li[i].onclick=function(){
+    
+   
+    if(this.tagName=='LI'){
+        evt.value = this.innerText
+     evt.nextElementSibling.classList.add("d-none");
+
+    }
+
+  }
+ }
+   }
 
 </script>
  @endsection;

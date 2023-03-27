@@ -67,6 +67,8 @@ Route::get('/send_invoice_mail/{email}','App\Http\Controllers\cardRegistationCon
 
 // });
 
+
+
 Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
     $send_msg_sms = file_get_contents("https://msg.elitbuzz-bd.com/smsapi?api_key=C200850563a0117d34a273.64286297&type=text&contacts=$phone&senderid=8809601000144&msg=Dear Customer, $otp is your SECRET OTP (One Time Password) to authenticate your login to Pkaard. Do not share it with anyone. For Contact : 096-77-888-222");
@@ -87,3 +89,5 @@ Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
 
 });
+
+Route::get('/category_district_search_result_view','App\Http\Controllers\HomeController@category_district_search_result_view');
