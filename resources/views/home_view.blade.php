@@ -145,7 +145,7 @@ margin: 0 -1.5rem;
         <div class="col-12">
             <div class="w-100 d-flex justify-content-center mb-1" >
                
-                 <button class="btn btn-info btn-block w-50">Search </button>
+                 <a href="/category_district_search_result_view" class="btn btn-info btn-block w-50">Search </a>
           
         </div>
     </div>
