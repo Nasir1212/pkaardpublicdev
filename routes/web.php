@@ -90,4 +90,7 @@ Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
 });
 
-Route::get('/category_district_search_result_view','App\Http\Controllers\HomeController@category_district_search_result_view');
+Route::get('/product_details_view','App\Http\Controllers\HomeController@product_details_view');
+
+Route::get('/product_view','App\Http\Controllers\HomeController@product_view');
+

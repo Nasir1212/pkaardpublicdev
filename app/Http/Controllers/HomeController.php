@@ -70,9 +70,13 @@ return true;
 
 
 
-public function  category_district_search_result_view(){
-    return view('category_district_search_result_view');
+public function  product_details_view(){
+    return view('product_details_view');
 }
 
+public function  product_view(){
+
+    return view("product_view");
+}
 }
 
