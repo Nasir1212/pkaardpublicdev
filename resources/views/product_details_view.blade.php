@@ -81,6 +81,7 @@
 }
 
 
+
 @media screen and (max-width: 455px){
 .discount_btn {
     position: fixed;
@@ -102,9 +103,11 @@
 .prev_next_btn_container {
     top: 25%;
 }
+
+
 }
 </style>
-<section>
+<section class="">
     <div>
         <div class="d_c_s_content_image_container">
             <div class="d_c_s_img_container">
@@ -222,6 +225,25 @@
     </div>
 </section>
 
+
+<section class="">
+    <div class="card_number_container">
+       
+        <div class="card_form_close_icon">&#10006;</div>
+        <div class="card_number_form">
+            <form action="">
+                <div>
+                    <input type="text" style="margin-bottom: 0.5rem;" class="form-control" name="" id="" placeholder="Enter Card Number">
+                    <a href="/card_login_otp_view" class="btn btn-info btn-block btn-sm">Submit</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="form_overly"></div>
+    </div>
+</section>
+
+
 <script>
   let imgs =   document.getElementsByClassName("d_c_s_img_col")[0].getElementsByTagName('img')
 
@@ -281,5 +303,7 @@ for (let i = se; i < se+5 ; i++) {
  }
 
  change_action()
+
+ 
 </script>
  @endsection;

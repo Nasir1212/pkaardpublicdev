@@ -78,5 +78,13 @@ public function  product_view(){
 
     return view("product_view");
 }
+
+public function card_login_otp_view(){
+    return view("card_login_otp_view");
+}
+
+public function purchase_details(){
+    return view("purchase_details");
+}
 }
 

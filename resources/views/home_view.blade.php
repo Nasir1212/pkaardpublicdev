@@ -40,15 +40,14 @@ width: 94%;
 position: fixed;
 z-index: 200;
 top: 11px;
-margin: 0 -1.5rem;
+margin: 128px -1.5rem;
 }
 
 .dist{
-    margin: 0px -12rem !important;
+    margin: 128px -11.5rem !important;
 }
-    }
 
-    /* element {
+ .overly_form{
 	position: fixed;
 	top: 58px;
 	z-index: 500;
@@ -57,8 +56,11 @@ margin: 0 -1.5rem;
 	border-radius: 10px;
 	left: 0;
 	right: 0;
-} */
+}  
 
+    }
+
+   
 </style>
 <div class="slideing_box_container">
 
@@ -142,7 +144,7 @@ margin: 0 -1.5rem;
         <div class="col-6">
             <div class="form-group" style="position:relative" data-select2-id="29">
                 <label for="">Select District</label>
-                   <input type="text" class="form-control custom_form"  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select Category">
+                   <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select Category">
                    <div class="drop_down_bottom  dist d-none ">
                        <ul id="drop_list_2">
                              
@@ -272,6 +274,9 @@ margin: 0 -1.5rem;
 
 </div>
 
+
+
+
 <script>
   
   
@@ -381,6 +386,8 @@ bottom_left_slider_col[value-1].style.display='block'
    function focusin (evt){
     console.log(evt.nextElementSibling)
     evt.nextElementSibling.classList.remove("d-none");
+    evt.classList.add("overly_form");
+
    }
 
    function focusout(evt){
@@ -402,6 +409,7 @@ console.log(li[0].tagName)
     if(this.tagName=='LI'){
         evt.value = this.innerText
      evt.nextElementSibling.classList.add("d-none");
+     evt.classList.remove("overly_form");
 
     }
 

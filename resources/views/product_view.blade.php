@@ -262,6 +262,24 @@
 </section>
 
 
+<section class="">
+    <div class="card_number_container">
+       
+        <div class="card_form_close_icon">&#10006;</div>
+        <div class="card_number_form">
+            <form action="">
+                <div>
+                    <input type="text" style="margin-bottom: 0.5rem;" class="form-control" name="" id="" placeholder="Enter Card Number">
+                    <a href="/card_login_otp_view" class="btn btn-info btn-block btn-sm">Submit</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="form_overly"></div>
+    </div>
+</section>
+
+
 <script>
      function load_district(){
         let li = '<option> All District </option>';
