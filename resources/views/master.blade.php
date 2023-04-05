@@ -178,10 +178,13 @@
                             <div class="col-12 mb-4">
                                 <div class="social_midea">
                                     <div class="social">
-                                        <a href="#" class="facebook" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                                        <a href="#" target="_blank" class="twitter" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                                        <a href="#" target="_blank" class="instagram" title="Instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
-                                        <a href="#" target="_blank" class="youtube" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                                        <a href="https://web.facebook.com/Pkaard2022" class="facebook" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                        {{-- <a href="#" target="_blank" class="twitter" title="Twitter"><i class="fa-brands fa-twitter"></i></a> --}}
+                                        <a href="https://www.m.me/Pkaard2022" target="_blank" class="messanger" title="Messanger"><i class="fa-brands fa-facebook-messenger"></i></a>
+
+                                      
+                                        <a href="https://instagram.com/pkaard2022?igshid=ZDdkNTZiNTM=" target="_blank" class="instagram" title="Instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
+                                        <a href="https://www.linkedin.com/company/pkaard/" target="_blank" class="linkedin" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a>
                                         </div>
                                 </div>
                             </div>

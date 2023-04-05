@@ -226,7 +226,7 @@
 </section>
 
 
-<section class="">
+<section style="display:none">
     <div class="card_number_container">
        
         <div class="card_form_close_icon">&#10006;</div>
