@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'card_registation_add',
-        'is_phone_exit'
+        'is_phone_exit',
+        'get_product_by_d_and_c'
     ];
 }

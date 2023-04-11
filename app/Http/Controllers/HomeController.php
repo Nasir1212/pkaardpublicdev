@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\IP;
+use App\Models\Affiliation_product;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -86,5 +88,26 @@ public function card_login_otp_view(){
 public function purchase_details(){
     return view("purchase_details");
 }
+
+public static function all_category(){
+ return Category::all();
+}
+
+public function get_product_by_d_and_c(Request $req){
+   
+    $category_id= $req->input('category_id');  
+    $district_id= $req->input('district_id');  
+//  return   Affiliation_product::inRandomOrder()
+//  ->where(['category_id' =>$category_id ])
+//  ->where(['district_id' =>$district_id ])
+//  ->paginate(30)
+//  ->onEachSide(1);
+
+ return $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE district_id = $district_id AND category_id = $category_id  ORDER BY RAND() ");
+
+
+
+}
+
 }
 

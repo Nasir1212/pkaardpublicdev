@@ -44,7 +44,18 @@
                   </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-4">
-                <div><b>Category : </b>Hotel & Restoret </div>
+                <div class="form-group">
+                    <label for="">Category</label>
+                    <select id="selected_category" class="form-control" >
+                      <option value="0">All Category</option>
+                      @php
+                      $data = App\Http\Controllers\HomeController::all_category();
+                      @endphp   
+                      @foreach($data as $d)
+                      <option value="{{$d->id}}">{{$d->category_name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-4">
                 <div> <b>Total Posted :  </b>05</div>
@@ -282,14 +293,67 @@
 
 <script>
      function load_district(){
-        let li = '<option> All District </option>';
+        let li = '<option value="0"> All District </option>';
         District.forEach(function (data){
-        li  += `<option  data-id="${data['id']}"  value="${data['name']}">${data['name']}</option>`;
+        li  += `<option   value="${data['id']}">${data['name']}</option>`;
 
         })
         select_option.innerHTML = li
     }
 
     load_district();
+
+    document.addEventListener('DOMContentLoaded', () => {
+          
+           const urlParams = new URLSearchParams(window.location.search);
+            for (const opt of selected_category.children) {
+           
+            if(opt.value == urlParams.get('c') ){
+                opt.selected = true;
+            }
+           }
+
+           for (const opt of select_option.children) {
+           if(opt.value == urlParams.get('d') ){
+               opt.selected = true;
+           }
+          }
+          get_product_from_db();
+
+        });
+
+     async  function get_product_from_db(){
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.get('c')
+            
+            let server_data ={
+                category_id : urlParams.get('c'),
+                district_id :urlParams.get('d')
+            }
+
+            try{
+        const response = await fetch(`/get_product_by_d_and_c`,{
+            method:'POST',
+            body:JSON.stringify(server_data),
+            headers: new Headers({
+            'Content-Type': 'application/json',
+          
+        })
+            
+           
+            
+        } );
+       
+        const result = await response.json();
+        console.log(result);
+       
+    }catch(e){
+        console.log(e);
+      
+
+    }
+
+        }
+
 </script>
  @endsection;

@@ -118,23 +118,25 @@ margin: 128px -1.5rem;
 
 <div>
     
-    
+   <form name="searching_product_form">
 <section class="search_home_option card">
     <div class="row card-body">
+      
         <div class="col-6">
             <div class="form-group" style="position:relative" data-select2-id="29">
              <label for="">Select Category</label>
+             <input type="hidden" name="category">
+
                 <input type="text" class="form-control custom_form" onfocusin="focusin(this)" onfocusout="focusout(this)" onkeyup="search_category(this);" placeholder="Select Category">
                 <div class="drop_down_bottom d-none">
                     <ul id="drop_list_1">
-                        <li>Travel</li>
-                        <li>Hotel & Resort</li>
-                        <li>Entertainment</li>
-                        <li>Constructions & Constructor</li>
-                        <li>Travel</li>
-                        <li>Hotel & Resort</li>
-                        <li>Entertainment</li>
-                        <li>Constructions & Constructor</li>
+                   
+                        @php
+                        $data = App\Http\Controllers\HomeController::all_category();
+                        @endphp   
+                        @foreach($data as $d)
+                        <li data-id="{{$d->id}}">{{$d->category_name}}</li>
+                        @endforeach
                     </ul>
                 </div>
                
@@ -144,7 +146,8 @@ margin: 128px -1.5rem;
         <div class="col-6">
             <div class="form-group" style="position:relative" data-select2-id="29">
                 <label for="">Select District</label>
-                   <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select Category">
+                <input type="hidden" name="district">
+                   <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select District">
                    <div class="drop_down_bottom  dist d-none ">
                        <ul id="drop_list_2">
                              
@@ -158,13 +161,14 @@ margin: 128px -1.5rem;
         <div class="col-12">
             <div class="w-100 d-flex justify-content-center mb-1" >
                
-                 <a href="/product_view" class="btn btn-info btn-block w-50">Search </a>
+                 <button onclick="search_product()" type="button" class="btn btn-info btn-block w-50">Search </button>
           
         </div>
     </div>
-   
-</section>
 
+    
+</section>
+</form> 
 </div>
 
 <div class="box_container">
@@ -394,10 +398,8 @@ bottom_left_slider_col[value-1].style.display='block'
     console.log(evt.nextElementSibling)
     // evt.nextElementSibling.classList.add("d-none");
 
-   console.log( evt.nextElementSibling.children[0].children)
 
          let li =   evt.nextElementSibling.children[0].children
-console.log(li[0].tagName)
 
         for (let i = 0; i < li.length; i++) {
    
@@ -408,6 +410,8 @@ console.log(li[0].tagName)
    
     if(this.tagName=='LI'){
         evt.value = this.innerText
+        console.log(this.dataset.id)
+        evt.previousElementSibling.value = this.dataset.id
      evt.nextElementSibling.classList.add("d-none");
      evt.classList.remove("overly_form");
 
@@ -415,6 +419,16 @@ console.log(li[0].tagName)
 
   }
  }
+   }
+
+
+   function search_product (){
+    // let Step_one_data = Object.fromEntries(new FormData(document.forms['Step_one_data']));
+    let searching_data = Object.fromEntries(new FormData(document.forms['searching_product_form']))
+    console.log(searching_data)
+
+  location.href = `${location.origin}/product_view?c=${searching_data['category']}&d=${searching_data['district']}`;
+
    }
 
 </script>

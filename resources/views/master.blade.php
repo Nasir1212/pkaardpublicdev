@@ -130,26 +130,18 @@
                <div class="dual_section_sub_navitaion_and_main_section_countainer">
                 <div class="sub_navigation">
                    <div style="border: 1px solid #0000001f;" class="sub_navigation_container" >
-                       <ul>
-                           <li><a href="">Travel</a></li>
-                           <li><a href="">Hotel & Resort</a></li>
-                           <li><a href="">Entertainment</a></li>
-                           <li><a href="">Constructions & Constructor</a></li>
-                           <li><a href="">Food & Dining</a></li>
-                           <li><a href="">Home & Decor</a></li>
-                           <li><a href="">Jewelry</a></li>
-                           <li><a href="">Photography</a></li>
-                           <li><a href="">Legal & Financial </a></li>
-                           <li><a href="">Personal Care & Services </a></li>
-                           <li><a href="">Business Support & Supplies </a></li>
-                           <li><a href="">Merchants & Retail</a></li>
-                           <li><a href="">Health & Medicine </a></li>
-                           <li><a href="">Education  </a></li>
-                           <li><a href="">Manufacturing, Wholesale </a></li>
-                           <li><a href="">Logistics & Transportation</a></li>
-                           <li><a href="">Real Estate & Development</a></li>
-                           <li><a href="">Telco, Securities & Communication</a></li>
-                       </ul>
+                      
+                    @php
+                    $data = App\Http\Controllers\HomeController::all_category();
+                    @endphp
+
+                    <ul>
+
+                    @foreach($data as $d)
+                    <li><a href="/product_view?c={{$d->id}}&d=0">{{$d->category_name}}</a></li>
+                    @endforeach
+
+                    </ul>
                    </div>
                 </div>
 
