@@ -90,7 +90,7 @@ Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
 });
 
-Route::get('/product_details_view','App\Http\Controllers\HomeController@product_details_view');
+Route::get('/product_details_view/{product_id}','App\Http\Controllers\HomeController@product_details_view');
 
 Route::get('/product_view','App\Http\Controllers\HomeController@product_view');
 Route::get('/card_login_otp_view','App\Http\Controllers\HomeController@card_login_otp_view');

@@ -72,8 +72,11 @@ return true;
 
 
 
-public function  product_details_view(){
-    return view('product_details_view');
+public function  product_details_view( $product_id ){
+
+    $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name  FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE affiliation_product.id = $product_id");
+
+    return view('product_details_view',['product_data'=>$results]);
 }
 
 public function  product_view(){
@@ -93,17 +96,43 @@ public static function all_category(){
  return Category::all();
 }
 
-public function get_product_by_d_and_c(Request $req){
+public function get_product_by_d_and_c(Request $req ){
    
     $category_id= $req->input('category_id');  
     $district_id= $req->input('district_id');  
+    $page= $req->input('page');  
+
+
 //  return   Affiliation_product::inRandomOrder()
 //  ->where(['category_id' =>$category_id ])
 //  ->where(['district_id' =>$district_id ])
 //  ->paginate(30)
 //  ->onEachSide(1);
 
- return $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE district_id = $district_id AND category_id = $category_id  ORDER BY RAND() ");
+$ip=$_SERVER['REMOTE_ADDR'];
+$hour=date("H");
+$day=date("j");
+$month=date("n");
+$ip=str_replace(".","",$ip);
+$seed=($ip+$hour+$day+$month);
+
+$amount = 3;
+$offset = 0;
+if($category_id != 0 &&  $district_id != 0 ):
+
+  $total_data =   Affiliation_product::where(['category_id' =>$category_id ])->where(['district_id' =>$district_id ])->count();
+   $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE district_id = $district_id AND category_id = $category_id  ORDER BY RAND($seed)");
+ return  json_encode(array("total_data"=>$total_data,"all_data"=>$results ));
+//  LIMIT $amount OFFSET $offset
+
+else:
+    $total_data =   Affiliation_product::where(['category_id' =>$category_id ])->orWhere(['district_id' =>$district_id ])->count();
+
+    $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name  FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE district_id = $district_id OR category_id = $category_id  ORDER BY RAND($seed)");
+
+    return  json_encode(array("total_data"=>$total_data,"all_data"=>$results ));
+
+endif;
 
 
 
