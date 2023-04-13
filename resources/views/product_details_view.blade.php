@@ -148,7 +148,7 @@
                 
             </div>
             <div class="prize_box">
-                <p><b class="text-muted">Prize :- </b> 2000 TK</p>
+                <p><b class="text-muted">Prize :- </b>  {{$product_data[0]->regular_price }} TK</p>
                 <p><b class="text-muted">Discount :- </b> 50% </p>
             </div>
 

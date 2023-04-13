@@ -225,7 +225,7 @@ let index = 1;
 
                         <div>
                            ${privilege_info}
-                            <p><b class="text-muted">Regular Prize : </b>12000 TK</p>
+                            <p><b class="text-muted">Regular Prize : </b> ${d['regular_price']} TK</p>
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
