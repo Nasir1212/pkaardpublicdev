@@ -9,8 +9,10 @@
     
     <script src="{{asset('assets/js/bd_data.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
+    <script src="{{ asset('https://office.pkaard.com/assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+
     {{-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> --}}
+
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/index.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Large.css')}}">
@@ -25,6 +27,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
     del {
     text-decoration: line-through !important;
@@ -38,7 +41,7 @@
 
     <script>
         window.onload = function(){
-            fetch(`index`)
+            fetch(`${location.origin}/index`)
             .then(response => response.text())
             .then(data => {
                 console.log(data);

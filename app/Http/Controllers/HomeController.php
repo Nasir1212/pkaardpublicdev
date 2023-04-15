@@ -74,7 +74,7 @@ return true;
 
 public function  product_details_view( $product_id ){
 
-    $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name  FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE affiliation_product.id = $product_id");
+    $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name  FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE affiliation_product.id = '$product_id'");
 
     return view('product_details_view',['product_data'=>$results]);
 }

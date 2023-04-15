@@ -80,6 +80,9 @@
     font-family: auto;
 }
 
+.discription_box ol li{
+    list-style-type: decimal;
+}
 
 
 @media screen and (max-width: 455px){
@@ -106,13 +109,16 @@
 
 
 }
+
+
 </style>
 <section class="">
   
-{{-- @dd($product_data) --}}
-    @php 
-   $img_path_array = explode(",", $product_data[0]->img_path);
-    @endphp
+
+   <?php 
+   $img_path_array = explode(",",$product_data[0]->img_path);
+   
+ ?>
     <div>
         <div class="d_c_s_content_image_container">
             <div class="d_c_s_img_container">
@@ -149,15 +155,20 @@
             </div>
             <div class="prize_box">
                 <p><b class="text-muted">Prize :- </b>  {{$product_data[0]->regular_price }} TK</p>
-                <p><b class="text-muted">Discount :- </b> 50% </p>
+              <?php $privilege =   is_int($product_data[0]->privilege) ==true ?"<p><b class='text-muted'>Discount :- </b> ". $product_data[0]->privilege."% </p>":"<p><b class='text-muted'>Privilege :- </b> ".  $product_data[0]->privilege." </p>" ?>
+            
+
+                <?php echo "$privilege " ?>
             </div>
 
-           
-            <div class="discription_box">
-                <h4 class="text-muted">Details </h4>
-                <hr>
+           <hr>
+            <div class="discription_box" id="discription_box">
+               
                 
-                {{html_entity_decode($product_data[0]->details)}}
+                <?php
+                $description = $product_data[0]->details;
+                echo "$description "  ?>
+               
             </div>
             <div class="discount_btn">
                 <a class="btn btn-warning btn-block btn-lg" href="#">Get Discount</a>
@@ -231,7 +242,9 @@ function next_btn(){
  }
 
  function change_action(se = 1){
-   
+   try {
+    
+  
     for (let img of d_c_s_img) {
    img.classList.add('d-none')
 }
@@ -240,13 +253,17 @@ console.log(index)
 for (let i = se; i < se+5 ; i++) {
     d_c_s_img[i-1].classList.remove('d-none')
     
-  
 }
+}catch (error) {
+    
+}
+
 
  }
 
  change_action()
 
- 
+
+
 </script>
  @endsection;
