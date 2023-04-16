@@ -12,7 +12,9 @@
     <script src="{{ asset('https://office.pkaard.com/assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
     {{-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> --}}
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/index.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Large.css')}}">
@@ -31,6 +33,14 @@
 <style>
     del {
     text-decoration: line-through !important;
+}
+
+.chivo_mono{
+    font-family: 'Chivo Mono', monospace;
+}
+
+.checked {
+  color: orange;
 }
 
 
@@ -285,7 +295,24 @@
 
 
 <script type="text/javascript">
+
+// let scriptElement = document.createElement("script");
+// scriptElement.type = "text/javascript";
+// scriptElement.src = "JSfile.js";
+// document.body.appendChild(scriptElement);
   
+// document.addEventListener("contextmenu", (e) => {
+//  e.preventDefault();
+// }, false);
+
+// document.addEventListener("keydown", (e) => {
+//  if (e.ctrlKey || e.keyCode==123) {
+//   e.stopPropagation();
+//   e.preventDefault();
+//  }
+// });
+
+
     </script>
     
 </body>

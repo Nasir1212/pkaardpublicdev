@@ -98,5 +98,13 @@ Route::get('/purchase_details','App\Http\Controllers\HomeController@purchase_det
 Route::get('/all_category','App\Http\Controllers\HomeController@all_category');
 
 Route::post('/get_product_by_d_and_c','App\Http\Controllers\HomeController@get_product_by_d_and_c');
+Route::get('/card_login_view',function(){
+    return view("card_login_view");
+});
+Route::post('/check_card_number','App\Http\Controllers\HomeController@check_card_number');
+
+
+
+
 
 

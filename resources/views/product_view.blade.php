@@ -2,9 +2,7 @@
 
 @section('content')
 <style>
-    .checked {
-  color: orange;
-}
+
 .product_img{
     height: 17rem;
     overflow: hidden;

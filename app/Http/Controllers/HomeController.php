@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\IP;
 use App\Models\Affiliation_product;
 use App\Models\Category;
+use App\Models\card_registation;
+
 
 class HomeController extends Controller
 {
@@ -135,6 +137,16 @@ else:
 endif;
 
 
+
+}
+
+
+public function check_card_number(Request $req){
+
+    $card_id= $req->input("card_id");
+    $valid_card_no =  ltrim($card_id,1509002);
+   $result  =   card_registation::where(['card_id'=>$valid_card_no])->count();
+  return json_encode(['card_status'=>$result,"valid_card"=>$valid_card_no]);
 
 }
 

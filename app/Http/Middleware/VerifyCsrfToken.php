@@ -15,6 +15,7 @@ class VerifyCsrfToken extends Middleware
         //
         'card_registation_add',
         'is_phone_exit',
-        'get_product_by_d_and_c'
+        'get_product_by_d_and_c',
+        'check_card_number'
     ];
 }
