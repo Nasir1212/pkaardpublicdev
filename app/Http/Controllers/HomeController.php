@@ -7,7 +7,9 @@ use App\Models\IP;
 use App\Models\Affiliation_product;
 use App\Models\Category;
 use App\Models\card_registation;
-
+use App\Mail\Otp_mail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\OTP;
 
 class HomeController extends Controller
 {
@@ -146,7 +148,41 @@ public function check_card_number(Request $req){
     $card_id= $req->input("card_id");
     $valid_card_no =  ltrim($card_id,1509002);
    $result  =   card_registation::where(['card_id'=>$valid_card_no])->count();
-  return json_encode(['card_status'=>$result,"valid_card"=>$valid_card_no]);
+   $data =   card_registation::where(['card_id'=>$valid_card_no])->get();
+  return json_encode(['card_status'=>$result,"valid_card"=>$data[0]['card_id'],'phone_number'=>$data[0]['phone_number'],'email'=>$data[0]['email']]);
+
+}
+
+public  function send_otp(Request $req){
+    $card_id= $req->input("card_id");
+   $data =   card_registation::where(['card_id'=>$card_id])->get();
+
+   $otp = rand(100000,999999);
+   $mail = $data[0]['email'];
+   $phone = $data[0]['phone_number'];
+
+   $send_msg_sms = file_get_contents("https://msg.elitbuzz-bd.com/smsapi?api_key=C200850563a0117d34a273.64286297&type=text&contacts=$phone&senderid=8809601000144&msg=Dear Customer,  $otp  is your SECRET OTP (One Time Password) to authenticate your login to Pkaard. Do not share it with anyone. For Contact : 096-77-888-222");
+   if($send_msg_sms ){
+    $is_send_mail =  Mail::to($mail)->send(new Otp_mail($otp));
+
+    $sending_otp =  OTP::insert([
+        'otp'=>$otp,
+        'is_expired'=>0,
+        'create_at'=>date("Y-m-d H:i:s")
+      
+      ]);
+
+
+    if($is_send_mail){
+        return json_encode(array('condition'=>true,'message'=>"Mail OTP  sent successfully..."));
+     }else{
+       return json_encode(array('condition'=>false,'message'=>"Mail OTP  sent failed..."));
+     } 
+    }else{
+        return json_encode(array('condition'=>false,'message'=>"phone OTP  sent failed...")); 
+     }
+    
+
 
 }
 

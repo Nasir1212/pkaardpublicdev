@@ -73,8 +73,9 @@ Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
     $send_msg_sms = file_get_contents("https://msg.elitbuzz-bd.com/smsapi?api_key=C200850563a0117d34a273.64286297&type=text&contacts=$phone&senderid=8809601000144&msg=Dear Customer, $otp is your SECRET OTP (One Time Password) to authenticate your login to Pkaard. Do not share it with anyone. For Contact : 096-77-888-222");
    if($send_msg_sms ){
+    // echo $send_msg_sms;
+    // return json_encode(array('condition'=>true,'message'=>"Mobile OTP  sent successfully..."));
 
-  
     $is_send_mail =  Mail::to($mail)->send(new Otp_mail($otp));
 
     if($is_send_mail){
@@ -102,6 +103,7 @@ Route::get('/card_login_view',function(){
     return view("card_login_view");
 });
 Route::post('/check_card_number','App\Http\Controllers\HomeController@check_card_number');
+Route::post('/send_otp','App\Http\Controllers\HomeController@send_otp');
 
 
 

@@ -25,15 +25,14 @@
     // console.log(history.go())
   async  function get_card_no(){
 let patt = /^[0-9]+$/g
+let patt2 = /^1509002/g;
    
      
 
-       if(patt.test(card_no.value)){
+       if(patt.test(card_no.value) && patt2.test(card_no.value)){
 
         try {
           
-        // sessionStorage.card_id = Number(card_no.value);
-
         let card_info = {
             card_id:card_no.value
         }
@@ -47,14 +46,26 @@ let patt = /^[0-9]+$/g
         });
        
         const result = await response.json();
-        console.log(result)
+        
+        if(response.status=200){
+        if(result['card_status'] ==1){
+            sessionStorage.card_id = result['valid_card'];
+            sessionStorage.email = result['email'];
+            sessionStorage.phone_number = result['phone_number']
+            location.href = `${location.origin}/card_login_otp_view`;
+            
+        }else{
+         swal("Opps !", "Please insert valid card number!", "error");
 
+        }
+    }
         } catch (error) {
             console.log(error)
-            
+            swal("Opps !", "Something went wrong", "error"); 
         }
-
      
+       }else{
+        swal("Opps !", "Please insert valid card number!", "error");
        }
 
 
