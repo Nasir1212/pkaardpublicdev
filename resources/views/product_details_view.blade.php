@@ -210,103 +210,87 @@ grid-template-columns: repeat(2,1fr);
     </div>
 </section>
 
+<?php $data =  App\Http\Controllers\HomeController::suggested_product($product_data[0]->category_id); ?>
+
+<?php $rating_comment =  App\Http\Controllers\HomeController::get_product_coment_and_rating($product_data[0]->id); ?>
+
+
+{{-- @dd($data); --}}
 <!--Suggest Product Section -->
 <section class="suggest_product_section">
     <div>
         <h4 class="text-muted chivo_mono suggest_heading">We have suggested for you </h4>
     </div>
     <div class="suggest_product_container">
-        <a class="suggest_product_col" href="/product_details_view/1">
+
+        @foreach($data as $d)
+<?php    $suggested_img_path_array = explode(",",$d->img_path);?>
+<?php $privilege =   is_numeric($d->privilege) ==true ?"<p><b class='text-muted'>Discount :- </b> ". $d->privilege."% </p>":"<p><b class='text-muted'>Privilege :- </b> ".  $d->privilege." </p>" ?>
+
+        <a class="suggest_product_col" href="/product_details_view/{{$d->id}}">
             <div class="suggest_product_img">
-                <img src="https://img.pkaard.com/images/{{$img_path_array[0]}}" alt="Pkaard Image">
+                <img src="https://img.pkaard.com/images/{{$suggested_img_path_array[0]}}" alt="Pkaard Image">
             </div>
 
             <div class="product_info_container">
-                <div>{{$product_data[0]->title}}</div>
-                <div><b>Regular Price</b>{{$product_data[0]->regular_price}} TK </div>
+                <div>{{$d->title}}</div>
+                <div><b>Regular Price</b>{{$d->regular_price}} TK </div>
                 <div>  <?php echo "$privilege " ?></div>
             </div>
         </a>
-        
+    
+    @endforeach
 
-        <a class="suggest_product_col" href="/product_details_view/1">
-            <div class="suggest_product_img">
-                <img src="https://img.pkaard.com/images/{{$img_path_array[0]}}" alt="Pkaard Image">
-            </div>
-
-            <div class="product_info_container">
-                <div>{{$product_data[0]->title}}</div>
-                <div><b>Regular Price</b>{{$product_data[0]->regular_price}} TK </div>
-                <div>  <?php echo "$privilege " ?></div>
-            </div>
-        </a>
-        
-
-        <a class="suggest_product_col" href="/product_details_view/1">
-            <div class="suggest_product_img">
-                <img src="https://img.pkaard.com/images/{{$img_path_array[0]}}" alt="Pkaard Image">
-            </div>
-
-            <div class="product_info_container">
-                <div>{{$product_data[0]->title}}</div>
-                <div><b>Regular Price</b>{{$product_data[0]->regular_price}} TK </div>
-                <div>  <?php echo "$privilege " ?></div>
-            </div>
-        </a>
-        
-
-        <a class="suggest_product_col" href="/product_details_view/1">
-            <div class="suggest_product_img">
-                <img src="https://img.pkaard.com/images/{{$img_path_array[0]}}" alt="Pkaard Image">
-            </div>
-
-            <div class="product_info_container">
-                <div>{{$product_data[0]->title}}</div>
-                <div><b>Regular Price</b>{{$product_data[0]->regular_price}} TK </div>
-                <div>  <?php echo "$privilege " ?></div>
-            </div>
-        </a>
-        
+      
 
 
     </div>
 </section>
 <!--Suggest Product Section /-->
 <br>
-
+@if(count($rating_comment) >0)
 <section class="customer_reviews_rating_section">
     <div>
         <h4 class="text-muted chivo_mono suggest_heading"> Customers Reviews and Ratings </h4>
-        <hr>
+       
     </div>
     <div class="customer_reviews_rating_container">
-        <div class="customer_reviews_rating_col">
+        @foreach($rating_comment as $rc)
+        <hr>
+        <div class="customer_reviews_rating_col mb-3">
             <div class="mb-2">
-              <span> <h4 class="d-inline lead"> Nasiur Uddin</h4></span>
-              <sup><s> <span class="text-muted">  3 Aprile 2023</span> </s></sup>
+              <span> <h4 class="d-inline lead"> {{$rc->user_name}}</h4></span>
+              <sup><s> <span class="text-muted">  {{ date("d M Y" ,strtotime($rc->date))}}</span> </s></sup>
             </div>
             
             <div class="mb-3">
-                <span class="fa fa-star checked" aria-hidden="true"></span>
-                <span class="fa fa-star checked" aria-hidden="true"></span>
-                <span class="fa fa-star checked" aria-hidden="true"></span>
-                <span class="fa fa-star checked" aria-hidden="true"></span>
-                <span class="fa fa-star-o" aria-hidden="true"></span>
+              
+                @for($i = 0; $i < $rc->rating; $i++)
+                <span class="fa fa-star checked" aria-hidden="true"></span> 
+                @endfor
+
+                @for($i = 0; $i < 5 - $rc->rating; $i++)
+                <span class="fa fa-star" aria-hidden="true"></span> 
+                @endfor
+                
             </div>
 
             <div class="comment">
-                <p class="text-justify">ফেলুদা, ব্যোমকেশ, কাকাবাবু, শার্লক হোমসেকে কে না চেনে বলুন? এসব চরিত্র কে সবাই অনেক পছন্দ করার পিছনে কারন হলো এসব গোয়েন্দা চরিত্র। এনারা যেভাবে রহস্যের সমাধান করেন সেসব পড়ে মুগ্ধ না হয়ে পারা যায়না। অনেকেই হয়তো বাস্তব জীবনে ঘটিত কোন সমস্যার সমাধান তাদের মত করে বের করার চেষ্টা করে। অনেকের কথা না বলে নিজের কথাই বলিনা, আমি নিজেও কোন কিছু সমাধান করার জন্য আজগুবি যেসব চিন্তা করি তাতে মানুষ পাগল ভাবলেও ভাবতে পারে। এই যে আমার এরকম আচরন তার পুরাটাই কিন্তু কাল্পনিক এসব চরিত্র থেকে এসেছে। এখন কথা হলো এসব কেন বলছি, বলার কারন এটাই যে আমরা চরিত্র হিসাবে অনেক গোয়েন্দাদের চিনি কিন্তু বাস্তবের কোন গোয়েন্দাদের কি কাউকে চিনি? অবশ্য না চেনারই কথা। তার তো গল্পের চরিত্রের মতো প্রচার করেন না যে তারা গোয়েন্দা।</p>
+                <p class="text-justify"> {{$rc->comment}} </p>
             </div>
 
 
         </div>
+   
+        @endforeach
     </div>
 
     <div>
-        <hr>
-        <a class="btn btn-info btn-sm mb-5 float-right" href="/card_login_view">Push Reviews & Reating</a>
+      
+        <a class="btn btn-info btn-sm mb-5 float-right" id="{{$product_data[0]->id}}" href="/card_login_view">Push Reviews & Reating</a>
     </div>
 </section>
+@endif
 <section style="display:none">
     <div class="card_number_container">
        

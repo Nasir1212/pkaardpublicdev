@@ -39,7 +39,7 @@
                 <input type="text" maxlength="1" class="form-control ref_code_one" name="" id="6">
                
             </div>
-            <input type="hidden" value="" id="get_otp" name="reference_code" class="form-control" id="">
+            <input type="hidden" value="" id="get_otp" name="reference_code" class="form-control">
             <small id="" class="form-text text-muted"> </small>
         </div>
         <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -73,13 +73,53 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     
     if(sessionStorage.card_id){
-        send_otp()
+        // send_otp()
         mobile.innerText = sessionStorage.phone_number.replace(/(?<=\d\d\d)\d(?=\d{2})/g, "*");
         email.innerText = sessionStorage.email.replace(/(?<=\w\w\w)\w(?=\w{2})/g, "*") 
     }
        
 
 });
+
+async function receive_otp(){
+
+
+    let otp_data = {
+        otp:get_otp.value
+    }
+
+    try {
+
+        const response = await fetch(`/check_card_otp`,{
+            method:'POST',
+            body:JSON.stringify(otp_data),
+            headers: new Headers({
+            'Content-Type': 'application/json', 
+        })
+              
+        });
+        console.log(response)
+        const result = await response.json();
+      
+        console.log(result)
+        if(response.status == 200){
+            if(result['condition'] == true){
+                // sessionStorage.destory();
+                // setLocalStorage(result['condition']) 
+                localStorage.card = JSON.stringify(result);
+                // location.go(2);
+            }else{
+                swal("Opps !", `${result['message']}`, "error");
+            }
+        }
+
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
  
 async function send_otp(){
 
@@ -93,9 +133,6 @@ async function send_otp(){
     }, 60000 );
 
     try {
-        
-   
-
     const response = await fetch(`/send_otp`,{
             method:'POST',
             body:JSON.stringify(card_info),
@@ -105,8 +142,7 @@ async function send_otp(){
               
         });
 
-        const result = response.json();
-
+        const result = await response.json();
         console.log(result)
         toast_con.classList.remove("d-none")
        
@@ -136,5 +172,10 @@ let ref_code_one =   document.getElementsByClassName('ref_code_one')
        
     })
  }
+
+
+
+
+
 </script>
  @endsection;

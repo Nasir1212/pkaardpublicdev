@@ -52,6 +52,7 @@ let patt2 = /^1509002/g;
             sessionStorage.card_id = result['valid_card'];
             sessionStorage.email = result['email'];
             sessionStorage.phone_number = result['phone_number']
+            send_otp()
             location.href = `${location.origin}/card_login_otp_view`;
             
         }else{
@@ -70,6 +71,39 @@ let patt2 = /^1509002/g;
 
 
     }
+
+    async function send_otp(){
+
+   
+let card_info = {
+    card_id: sessionStorage.card_id
+}
+resend_btn.disabled = true
+setTimeout(() => {
+    resend_btn.disabled = false
+}, 60000 );
+
+try {
+const response = await fetch(`/send_otp`,{
+        method:'POST',
+        body:JSON.stringify(card_info),
+        headers: new Headers({
+        'Content-Type': 'application/json', 
+    })
+          
+    });
+
+    const result = await response.json();
+    console.log(result)
+    toast_con.classList.remove("d-none")
+   
+} catch (error) {
+    
+} 
+
+}
+
+
 </script>
 
  @endsection;

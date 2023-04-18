@@ -104,6 +104,8 @@ Route::get('/card_login_view',function(){
 });
 Route::post('/check_card_number','App\Http\Controllers\HomeController@check_card_number');
 Route::post('/send_otp','App\Http\Controllers\HomeController@send_otp');
+Route::post('/check_card_otp','App\Http\Controllers\HomeController@check_card_otp');
+
 
 
 

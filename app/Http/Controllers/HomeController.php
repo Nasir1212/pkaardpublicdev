@@ -10,6 +10,7 @@ use App\Models\card_registation;
 use App\Mail\Otp_mail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\OTP;
+use App\Models\Rating_and_comment;
 
 class HomeController extends Controller
 {
@@ -155,7 +156,7 @@ public function check_card_number(Request $req){
 
 public  function send_otp(Request $req){
     $card_id= $req->input("card_id");
-   $data =   card_registation::where(['card_id'=>$card_id])->get();
+   $data = card_registation::where(['card_id'=>$card_id])->get();
 
    $otp = rand(100000,999999);
    $mail = $data[0]['email'];
@@ -168,7 +169,8 @@ public  function send_otp(Request $req){
     $sending_otp =  OTP::insert([
         'otp'=>$otp,
         'is_expired'=>0,
-        'create_at'=>date("Y-m-d H:i:s")
+        'create_at'=>date("Y-m-d H:i:s"),
+        'card_id'=>$data[0]['card_id']
       
       ]);
 
@@ -183,6 +185,36 @@ public  function send_otp(Request $req){
      }
     
 
+
+}
+
+public function check_card_otp(Request $req){
+    $otp= $req->input("otp");
+    if(OTP::where(['otp'=>$otp])->count() >0){
+       $data =  OTP::where(['otp'=>$otp])->get();
+
+       OTP::where(['otp'=>$otp])->delete();
+       return json_encode(['condition'=>true,'is_login' => true,'card_id'=>$data[0]['card_id']]);
+    }else{
+        return json_encode(array('condition'=>false,'message'=>"OTP not matched "));
+    }
+
+}
+
+public static function suggested_product($category_id){
+
+    return   Affiliation_product::inRandomOrder()
+ ->where(['category_id' =>$category_id])
+ ->limit(4)
+ ->get();
+
+}
+
+public static function get_product_coment_and_rating($product_id){
+
+//   return Rating_and_comment::where(['product_id'=>$product_id])->get();
+
+ return \DB::select("SELECT rating_and_comment.* ,card_registation.full_name AS user_name FROM rating_and_comment LEFT JOIN card_registation ON rating_and_comment.card_id = card_registation.card_id WHERE rating_and_comment.product_id = '$product_id'");
 
 }
 
