@@ -21,3 +21,23 @@ sub_nav_icon.onclick = function(){
         sub_navigation_container.style.display = 'block'
     }
 }
+
+
+function is_card_login(url,data = {}){
+    let card_data =   SessionExport.getLocalStorage();
+   console.log(card_data)
+
+   if(card_data['is_login'] != true){
+    location.href = `${location.origin}/card_login_view`;
+
+   }else{
+    sessionStorage.is_card_login_data = JSON.stringify(data)
+     
+    location.href = `${location.origin}/${url}`;
+
+   }
+  }
+  
+  // console.log(is_card_login())
+  
+  

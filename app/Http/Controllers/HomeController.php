@@ -218,5 +218,31 @@ public static function get_product_coment_and_rating($product_id){
 
 }
 
+
+public function insert_reviews_reating(Request $req){
+    $rating= $req->input("rating");
+    $card_id= $req->input("card_id");
+
+    $product_id= $req->input("product_id");
+
+    $comment= $req->input("comment");
+
+    $result = Rating_and_comment::insert([
+        'card_id'=>$card_id,
+        'product_id'=>$product_id,
+        'comment'=>$comment,
+        'date'=>date('Y/m/d')
+    ]);
+
+    if($result){
+        return json_encode(['condition'=>true,'message'=>"Successfully inserted"]);
+    }else{
+        return json_decode(['condition'=>false,"message"=>"Inseted failed"]);
+    }
+
+
+}
+
+
 }
 

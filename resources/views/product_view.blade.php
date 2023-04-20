@@ -183,12 +183,8 @@ let index = 1;
             method:'POST',
             body:JSON.stringify(server_data),
             headers: new Headers({
-            'Content-Type': 'application/json',
-          
+            'Content-Type': 'application/json',  
         })
-            
-           
-            
         } );
        
         const result = await response.json();

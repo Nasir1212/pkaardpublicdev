@@ -107,6 +107,17 @@ Route::post('/send_otp','App\Http\Controllers\HomeController@send_otp');
 Route::post('/check_card_otp','App\Http\Controllers\HomeController@check_card_otp');
 
 
+Route::get('/reviews_reating_push_view',function(){
+ return  view("reviews_reating_push_view");
+});
+
+Route::post('/insert_reviews_reating','App\Http\Controllers\HomeController@insert_reviews_reating');
+   
+
+
+
+
+
 
 
 

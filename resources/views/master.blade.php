@@ -30,6 +30,8 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    
+    
 <style>
     del {
     text-decoration: line-through !important;
@@ -277,6 +279,10 @@
     </div>
 
     {{-- <script src="{{asset('assets/js/Jquery.min.js')}}"></script> --}}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    <script src="{{asset('assets/js/SessionExport.js')}}"></script>
+  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
     <script src="{{asset('assets/js/fontawsome.js')}}"></script> 
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script> 
@@ -284,7 +290,6 @@
     <script src="{{asset('assets/js/index.js')}}"></script> 
     <script src="{{asset('assets/js/jquery.toast.js')}}"></script> 
 
-  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -311,6 +316,7 @@
 //   e.preventDefault();
 //  }
 // });
+
 
 
     </script>

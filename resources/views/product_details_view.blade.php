@@ -248,8 +248,9 @@ grid-template-columns: repeat(2,1fr);
 </section>
 <!--Suggest Product Section /-->
 <br>
-@if(count($rating_comment) >0)
+
 <section class="customer_reviews_rating_section">
+    @if(count($rating_comment) >0)
     <div>
         <h4 class="text-muted chivo_mono suggest_heading"> Customers Reviews and Ratings </h4>
        
@@ -284,29 +285,13 @@ grid-template-columns: repeat(2,1fr);
    
         @endforeach
     </div>
-
+    @endif
     <div>
       
-        <a class="btn btn-info btn-sm mb-5 float-right" id="{{$product_data[0]->id}}" href="/card_login_view">Push Reviews & Reating</a>
+        <button type="button" class="btn btn-info btn-sm mb-5 float-right" id="{{$product_data[0]->id}}" onclick="is_card_login('reviews_reating_push_view',{product_id:{{$product_data[0]->id}}})" > Push Reviews & Reating</button>
     </div>
 </section>
-@endif
-<section style="display:none">
-    <div class="card_number_container">
-       
-        <div class="card_form_close_icon">&#10006;</div>
-        <div class="card_number_form">
-            <form action="">
-                <div>
-                    <input type="text" style="margin-bottom: 0.5rem;" class="form-control" name="" id="" placeholder="Enter Card Number">
-                    <a href="/card_login_view" class="btn btn-info btn-block btn-sm">Submit</a>
-                </div>
-            </form>
-        </div>
 
-        <div class="form_overly"></div>
-    </div>
-</section>
 
 <script>
   let imgs =   document.getElementsByClassName("d_c_s_img_col")[0].getElementsByTagName('img')

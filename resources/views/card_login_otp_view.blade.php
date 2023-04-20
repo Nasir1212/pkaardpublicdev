@@ -9,6 +9,7 @@
 }
 
 </style>
+
 <section>
 
   
@@ -73,7 +74,7 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     
     if(sessionStorage.card_id){
-        // send_otp()
+        send_otp()
         mobile.innerText = sessionStorage.phone_number.replace(/(?<=\d\d\d)\d(?=\d{2})/g, "*");
         email.innerText = sessionStorage.email.replace(/(?<=\w\w\w)\w(?=\w{2})/g, "*") 
     }
@@ -104,10 +105,10 @@ async function receive_otp(){
         console.log(result)
         if(response.status == 200){
             if(result['condition'] == true){
-                // sessionStorage.destory();
-                // setLocalStorage(result['condition']) 
-                localStorage.card = JSON.stringify(result);
-                // location.go(2);
+                sessionStorage.clear();
+                SessionExport.setLocalStorage(result)
+                history.go(-2);
+
             }else{
                 swal("Opps !", `${result['message']}`, "error");
             }
