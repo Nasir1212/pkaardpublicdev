@@ -24,7 +24,7 @@ sub_nav_icon.onclick = function(){
 
 
 function is_card_login(url,data = {}){
-    let card_data =   SessionExport.getLocalStorage();
+    let card_data =   SessionExport.getLocalStorage()? SessionExport.getLocalStorage() :false ;
    console.log(card_data)
 
    if(card_data['is_login'] != true){

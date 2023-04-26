@@ -205,13 +205,7 @@ let index = 1;
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <h5 >  ${d['title']}</h5>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-o"></span>
-                        </div>
+                       
                         <div>
                             <p> <i class="fa fa-map-marker" style="font-size:25px"></i> House- 37 Rd 12, ঢাকা 1212</p>
                             <p><b class="text-muted" >District</b> ${d['district_name']}</p>

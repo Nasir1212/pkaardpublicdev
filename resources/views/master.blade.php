@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    <script src="{{asset('assets/js/SessionExport.js')}}"></script>
+  
+    
     
 <style>
     del {
@@ -43,6 +47,10 @@
 
 .checked {
   color: orange;
+}
+
+.active_class{
+    background: linear-gradient(-45deg, #dca9405c, #ef65195e);
 }
 
 
@@ -150,10 +158,16 @@
                     $data = App\Http\Controllers\HomeController::all_category();
                     @endphp
 
+                   
                     <ul>
-
+                        
                     @foreach($data as $d)
-                    <li><a href="/product_view?c={{$d->id}}&d=0">{{$d->category_name}}</a></li>
+                    <li  class="<?php if(isset($_GET['c']) &&  $_GET['c']  == $d->id){
+                        echo "active_class";
+                    }
+                    
+                   
+                   ?>"><a href="/product_view?c={{$d->id}}&d=0">{{$d->category_name}}</a></li>
                     @endforeach
 
                     </ul>
@@ -280,9 +294,6 @@
 
     {{-- <script src="{{asset('assets/js/Jquery.min.js')}}"></script> --}}
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
-    <script src="{{asset('assets/js/SessionExport.js')}}"></script>
-  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
     <script src="{{asset('assets/js/fontawsome.js')}}"></script> 
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script> 

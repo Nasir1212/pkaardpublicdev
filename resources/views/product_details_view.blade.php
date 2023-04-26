@@ -144,8 +144,15 @@ grid-template-columns: repeat(2,1fr);
 </style>
 <section class="">
   
-
-   <?php 
+    <?php 
+    $max = 0;
+    foreach( $all_rating as $rat ){
+        $max = $max + $rat->rating;
+       
+    }
+    $avg_rating = $max/count($all_rating);
+ 
+   
    $img_path_array = explode(",",$product_data[0]->img_path);
    
  ?>
@@ -176,6 +183,12 @@ grid-template-columns: repeat(2,1fr);
             <div class="info_container">
             <div class="title_box">
                 <p><b class="text-muted">Name :- </b> <i> {{$product_data[0]->title}}</i></p>
+                @for($i = 0; $i < intval($avg_rating); $i++)
+                <span class="fa fa-star checked" aria-hidden="true"></span> 
+                @endfor
+                @if(is_float($avg_rating)==1)
+                <span class="fa fa-star-half-o checked" aria-hidden="true"></span> 
+                @endif
                 <p><b class="text-muted">Category :- </b>  <i> {{$product_data[0]->category_name}}</i></p>
             </div>
             <div class="localtion_box">
@@ -213,6 +226,8 @@ grid-template-columns: repeat(2,1fr);
 <?php $data =  App\Http\Controllers\HomeController::suggested_product($product_data[0]->category_id); ?>
 
 <?php $rating_comment =  App\Http\Controllers\HomeController::get_product_coment_and_rating($product_data[0]->id); ?>
+
+{{-- @dd($all_rating) --}}
 
 
 {{-- @dd($data); --}}
@@ -260,7 +275,7 @@ grid-template-columns: repeat(2,1fr);
         <hr>
         <div class="customer_reviews_rating_col mb-3">
             <div class="mb-2">
-              <span> <h4 class="d-inline lead"> {{$rc->user_name}}</h4></span>
+              <span> <h4 class="d-inline lead {{$rc->card_id}}" > {{is_null($rc->user_name)?"No Name":$rc->user_name}}</h4></span>
               <sup><s> <span class="text-muted">  {{ date("d M Y" ,strtotime($rc->date))}}</span> </s></sup>
             </div>
             
@@ -271,7 +286,7 @@ grid-template-columns: repeat(2,1fr);
                 @endfor
 
                 @for($i = 0; $i < 5 - $rc->rating; $i++)
-                <span class="fa fa-star" aria-hidden="true"></span> 
+                <span class="fa fa-star-o" aria-hidden="true"></span> 
                 @endfor
                 
             </div>
@@ -358,6 +373,19 @@ for (let i = se; i < se+5 ; i++) {
 
  change_action()
 
+
+// console.log(document.getElementById(SessionExport.getLocalStorage()['card_id']))
+
+try {
+  if(SessionExport.getLocalStorage()){
+
+for (const Elem  of document.getElementsByClassName(SessionExport.getLocalStorage()['card_id'])) {
+    Elem.innerHTML = "<b class='text-info'>Your Review</b>";
+} 
+  }
+} catch (error) {
+   console.log(error) 
+}
 
 
 </script>

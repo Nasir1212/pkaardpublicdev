@@ -79,9 +79,11 @@ return true;
 
 public function  product_details_view( $product_id ){
 
-    $results = \DB::select("SELECT affiliation_product.* , category.category_name,districts.name AS district_name  FROM affiliation_product LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id  WHERE affiliation_product.id = '$product_id'");
+    $results = \DB::select("SELECT affiliation_product.*, category.category_name,districts.name AS district_name   FROM affiliation_product  LEFT JOIN category ON category.id =affiliation_product.category_id LEFT JOIN districts ON districts.id = affiliation_product.district_id WHERE affiliation_product.id = '$product_id' ");
 
-    return view('product_details_view',['product_data'=>$results]);
+    $all_rating = \DB::select("SELECT rating  FROM rating_and_comment  WHERE product_id = '$product_id'");
+
+    return view('product_details_view',['product_data'=>$results,'all_rating'=>$all_rating]);
 }
 
 public function  product_view(){
@@ -222,15 +224,14 @@ public static function get_product_coment_and_rating($product_id){
 public function insert_reviews_reating(Request $req){
     $rating= $req->input("rating");
     $card_id= $req->input("card_id");
-
     $product_id= $req->input("product_id");
-
     $comment= $req->input("comment");
 
     $result = Rating_and_comment::insert([
         'card_id'=>$card_id,
         'product_id'=>$product_id,
         'comment'=>$comment,
+        'rating'=>$rating,
         'date'=>date('Y/m/d')
     ]);
 

@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('card_id')->nullable();
             $table->string('product_id')->nullable();
-            $table->string('comment')->nullable();
+            $table->text('comment')->nullable();
             $table->string('rating')->nullable();
-
             $table->date('date')->nullable();
 
 
