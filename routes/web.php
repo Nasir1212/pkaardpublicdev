@@ -91,6 +91,7 @@ Route::get('otp/{phone}/{mail}/{otp}',function ($phone,$mail,$otp){
 
 });
 
+
 Route::get('/product_details_view/{product_id}','App\Http\Controllers\HomeController@product_details_view');
 
 Route::get('/product_view','App\Http\Controllers\HomeController@product_view');
@@ -113,7 +114,9 @@ Route::get('/reviews_reating_push_view',function(){
 
 Route::post('/insert_reviews_reating','App\Http\Controllers\HomeController@insert_reviews_reating');
    
-
+Route::get('/customer_profile',function(){
+    return view("customer_profile");
+});
 
 
 

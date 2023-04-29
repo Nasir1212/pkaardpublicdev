@@ -131,6 +131,10 @@
                          <li>
                             <a href="">Carrier</a>
                         </li>
+
+                        <li>
+                            <a href="/customer_profile">Profile</a>
+                        </li>
                          <li>
                             <a href="{{url('about_us')}}">About Us</a>
                         </li>
@@ -234,6 +238,7 @@
                                         <li><a class="text-white" href="">Terms & Conditions</a></li>
                                         <li><a class="text-white" href="">Contact Us</a></li>
                                         <li><a class="text-white" href="">Returns</a></li>
+
                                     </ul>
 
                                 </div>
@@ -251,6 +256,7 @@
                                         <li><a class="text-white" href="">Gift Certificates</a></li>
                                         <li><a class="text-white" href="">Affiliate</a></li>
                                         <li><a class="text-white" href="">Specials</a></li>
+                                        <li><a class="text-white" href="{{url('/card_login_view')}}">Customer login</a></li>
                                     </ul>
 
                                 </div>
