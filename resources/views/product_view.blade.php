@@ -56,55 +56,14 @@
                   </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-4">
-                <div> <b>Total Posted :  </b>  <span id="show_total_post">05</span></div>
+                <div> <b>Total Posted :  </b>  <span id="show_total_post"></span></div>
             </div>
 
         </div>
     </div>
     <div class="product_containainer" id="product_card_container">
 
-        
-
-{{-- 
-        <div class="card mb-4 p_tag">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 ">
-                        <div class="product_img mb-sm-5 custom_mb_sm "><img src="https://lh5.googleusercontent.com/p/AF1QipNgAIle3ZRROhZ6kRjI-2rNsad2F9oISvWclv2b=w592-h404-n-k-no-v1" alt="Pkaard"></div>
-                        
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <h5 >  HOTEL SHALIMAR MOTIJHEEL - CENTRE OF CITY </h5>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-o"></span>
-                        </div>
-                        <div>
-                            <p> <i class="fa fa-map-marker" style="font-size:25px"></i> House- 37 Rd 12, ঢাকা 1212</p>
-                            <p><b class="text-muted" >District</b> Dhaka</p>
-                        </div>
-
-                        <div>
-                            <p><b class="text-muted">Discount : </b>46%</p>
-                            <p><b class="text-muted">Regular Prize : </b>12000 TK</p>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <a class="btn btn-sm btn-warning btn-block" href="">Get Discount</a>
-                             
-                            </div>
-                            <div class="col-6">
-                               
-                                <a class="btn btn-sm btn-info btn-block" href="/product_details_view">See More &#8250;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+ 
     </div>
 </section>
 
@@ -217,7 +176,7 @@ let index = 1;
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
-                                <a class="btn btn-sm btn-warning btn-block" href="">Get Discount</a>
+                                <a class="btn btn-sm btn-warning btn-block" onclick="is_card_login('purchase_details/${d['id']}')"  >Get Discount</a>
                              
                             </div>
                             <div class="col-6">
@@ -256,11 +215,9 @@ let index = 1;
 //     console.log("LOad more")
 //     window.scrollTo(0, 150);
     
-//     get_product_from_db();
-
-
-    
+//     get_product_from_db();    
 // }
+
 }
 
 document.getElementsByTagName("select");

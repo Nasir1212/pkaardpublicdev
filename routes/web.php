@@ -96,7 +96,7 @@ Route::get('/product_details_view/{product_id}','App\Http\Controllers\HomeContro
 
 Route::get('/product_view','App\Http\Controllers\HomeController@product_view');
 Route::get('/card_login_otp_view','App\Http\Controllers\HomeController@card_login_otp_view');
-Route::get('/purchase_details','App\Http\Controllers\HomeController@purchase_details');
+Route::get('/purchase_details/{id}','App\Http\Controllers\HomeController@purchase_details');
 Route::get('/all_category','App\Http\Controllers\HomeController@all_category');
 
 Route::post('/get_product_by_d_and_c','App\Http\Controllers\HomeController@get_product_by_d_and_c');
