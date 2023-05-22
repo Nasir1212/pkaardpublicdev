@@ -214,7 +214,7 @@ grid-template-columns: repeat(2,1fr);
                
             </div>
             <div class="discount_btn">
-                <a class="btn btn-warning btn-block btn-lg" href="#">Get Discount</a>
+                <a class="btn custom_btn_warning_danger btn-block  chivo_mono" onclick="is_card_login('purchase_details/{{$product_data[0]->id }}')">Get Discount</a>
             </div>
             <br>
 

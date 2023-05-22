@@ -118,6 +118,10 @@ Route::get('/customer_profile',function(){
     return view("customer_profile");
 });
 
+Route::get('/gallery_view',function(){
+    return view("gallery_view");
+});
+
 
 
 

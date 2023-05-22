@@ -55,7 +55,9 @@
     background: linear-gradient(-45deg, #dca9405c, #ef65195e);
 }
 
-
+.custom_btn_warning_danger {
+    background: linear-gradient(45deg, tomato, #ffc107,orange,tomato) !important;
+}
 </style>
 
 </head>
@@ -122,7 +124,7 @@
                         </li>
 
                         <li>
-                            <a href="">Gallery</a>
+                            <a href="{{url('/gallery_view')}}">Gallery</a>
                         </li>
                          <li>
                             <a href="">Our Team</a>
@@ -200,7 +202,7 @@
                                 <img src="{{asset('./assets/images/pkaard_logo.jpeg')}}" class="footer_logo" alt="">
                             </div>
                             <div class="col-12 mb-4 ">
-                                <p style="color: #888888;font-size: 15px;font-weight: 500;text-align: justify;">We are a team of designers and developers that create high quality Magento, Prestashop, Opencart.</p>
+                                <p style="color: #888888;font-size: 15px;font-weight: 500;text-align: justify;"> Pkaard  provide all services under one roof from Good Morning to Bed.</p>
                             </div>
                             <div class="col-12 mb-4">
                                 <div class="social_midea">
@@ -272,7 +274,7 @@
                                    <div>
                                     <p style="color: #888888;font-size: 15px;font-weight: 500;text-align: justify;">Sign up for our e-mail to get latest news.</p>
                                     <div class="subscribe_section">
-                                        <div>
+                                        <div class="d-flex justify-content-end">
                                             <input style="border: none;outline: none;" type="text" placeholder="Please enter your email" name="" id="">
                                             
                 
