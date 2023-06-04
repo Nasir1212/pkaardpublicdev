@@ -218,21 +218,21 @@
     <div class="row">
 
     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-    <label for="" class="text-capitalize"> Apartment No  (এপার্টমেন্ট  নং) <i class="text-danger">*</i> </label>
+    <label for="" class="text-capitalize"> Apartment No  (এপার্টমেন্ট  নং) <i class="text-danger d-none">*</i> </label>
     <input type="text"class="form-control" name="cda_apartment_no" id="" aria-describedby="emailHelp" placeholder=" Apartment No ">
     <small id="" class="form-text text-muted"> </small>
     </div>
 
 
     <div class="form-group col-lg-6 col-md-6 col-sm-12" >
-    <label for=""  class="text-capitalize"> House No <b> /</b> Holding No (বাসা নং)  <i class="text-danger">*</i></label>
+    <label for=""  class="text-capitalize"> House No <b> /</b> Holding No (বাসা নং)  <i class="text-danger d-none">*</i></label>
     <input type="text"  class="form-control text-capitalize" name="cda_house_no" id="" placeholder="House No / Holding No">
     <small id="" class="form-text text-muted"> </small>
     </div>
 
 
     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-    <label for=""  class=""> Road No  (রোড নং) <i class="text-danger">*</i></label>
+    <label for=""  class=""> Road No  (রোড নং) <i class="text-danger d-none">*</i></label>
   
     <input type="text" placeholder="Road No " name="cda_road_no" class="form-control datetimepicker-input" data-target="#reservationdate">
     <small id="" class="form-text text-muted"> </small>
@@ -240,7 +240,7 @@
     </div>
     
     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-    <label for="" class="text-capitalize"> Area  <b> /</b> Village   (এলাকা  <b> /</b> গ্রাম) <i class="text-danger">*</i> </label>
+    <label for="" class="text-capitalize"> Area  <b> /</b> Village   (এলাকা  <b> /</b> গ্রাম) <i class="text-danger  d-none">*</i> </label>
     <input type="text"class="form-control" id="" name="cda_village" aria-describedby="emailHelp" placeholder=" Area / Village ">
     <small id="" class="form-text text-muted"> </small>
     </div>
@@ -547,9 +547,9 @@ let modal_content = /*html*/`
 `;
 
 document.getElementById("preview_body").innerHTML = modal_content
+//Step_three_data['cda_apartment_no'].length >0 && Step_three_data['cda_house_no'].length >0 && Step_three_data['cda_road_no'].length >0 &&  Step_three_data['cda_village'].length >0 && 
 
-
-if(Step_three_data['cda_apartment_no'].length >0 && Step_three_data['cda_house_no'].length >0 && Step_three_data['cda_road_no'].length >0 && Step_three_data['cda_village'].length >0 && Step_three_data['cda_division'].length >0 && Step_three_data['cda_district'].length >0  && Step_three_data['cda_address_details'].length >0 && document.getElementsByName(`agree_condition`)[0].checked == true ){
+if(  Step_three_data['cda_division'].length >0 && Step_three_data['cda_district'].length >0  && Step_three_data['cda_address_details'].length >0 && document.getElementsByName(`agree_condition`)[0].checked == true ){
     $('#exampleModal').modal('show')
 }
 
@@ -581,7 +581,7 @@ function back_form(evt){
     let elem ='';
     for (const key in input_data) {
           
-          if(key=='reference_code' || key=='agree_condition' || key == 'cda_upzilla'){
+          if(key=='reference_code' || key=='agree_condition' || key == 'cda_upzilla' || key=='cda_apartment_no' || key=='cda_house_no' || key=='cda_road_no' || key=='cda_village'){
           continue
           }
           elem = document.getElementsByName(`${key}`)[0]
