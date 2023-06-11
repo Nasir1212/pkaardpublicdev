@@ -143,16 +143,19 @@ grid-template-columns: repeat(2,1fr);
 
 </style>
 <section class="">
-  
-    <?php 
+   
+    <?php
+if(!empty($all_rating)){
+
     $max = 0;
+   
     foreach( $all_rating as $rat ){
         $max = $max + $rat->rating;
        
     }
     $avg_rating = $max/count($all_rating);
  
-   
+}
    $img_path_array = explode(",",$product_data[0]->img_path);
    
  ?>
@@ -183,12 +186,14 @@ grid-template-columns: repeat(2,1fr);
             <div class="info_container">
             <div class="title_box">
                 <p><b class="text-muted">Name :- </b> <i> {{$product_data[0]->title}}</i></p>
+               @if(!empty($all_rating)):
                 @for($i = 0; $i < intval($avg_rating); $i++)
                 <span class="fa fa-star checked" aria-hidden="true"></span> 
                 @endfor
                 @if(is_float($avg_rating)==1)
                 <span class="fa fa-star-half-o checked" aria-hidden="true"></span> 
                 @endif
+               @endif
                 <p><b class="text-muted">Category :- </b>  <i> {{$product_data[0]->category_name}}</i></p>
             </div>
             <div class="localtion_box">
