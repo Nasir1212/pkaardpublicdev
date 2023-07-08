@@ -150,17 +150,57 @@ let index = 1;
         console.log(result)
        if(response.status ==200 && response.ok ==true){
         let all_card = '';
-
+        let img_src = '';
         let map = result["all_data"].map((d)=>{
             let privilege_info = Number.isInteger(Number(d['privilege'])) == true? `<p><b class="text-muted">Discount : </b>${d['privilege']} %</p>`:`<p><b class="text-muted">Privilege : </b>${d['privilege'].toUpperCase()}</p>`;
 
-           if(d['img_path'] !=''){
-            console.log(d['img_path'])
+           if(d['img_path'] ==null || d['img_path'] == ""  ){
+            let img_src = ''
            }else{
-            console.log("Empty String")
-
+            console.log("img path")
+            d['img_path'].split(",")
            }
-            let img_src = d['img_path'] !=''?d['img_path'].split(","):''
+
+
+            // let img_src = d['img_path'] !=null ? d['img_path'].split(","):''
+
+            if(Number(d['is_room'])==1){
+                return  `
+         <div class="card mb-4 p_tag">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="product_img mb-sm-5 custom_mb_sm "><img src="${img_src == ''?'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg':`https://img.pkaard.com/images/${img_src[0]}`}" alt="Pkaard"></div>
+                        
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <h5 >  ${d['title']}</h5>
+                       
+                        <div>
+                            <p> <i class="fa fa-map-marker" style="font-size:25px"></i>${d['address']} </p>
+                            <p><b class="text-muted" >District</b> ${d['district_name']}</p>
+                        </div>
+
+                        <div>
+                          
+                           <p> Upto <b class="text-muted">${d['discount']} </b>  %  Discount</p>
+                        </div>
+
+                        <div class="row mt-3">
+                           
+                            <div class="col-6">
+                               
+                                <a class="btn btn-sm btn-info btn-block" href="/sub_product_view\\${d['id']}">See All Discount plane &#8250;</a>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+           `;
+            }else{
             return  `
          <div class="card mb-4 p_tag">
             <div class="card-body">
@@ -197,6 +237,8 @@ let index = 1;
         </div>
            
            `;
+
+    }
         })
 
       

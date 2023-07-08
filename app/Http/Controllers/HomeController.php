@@ -245,5 +245,16 @@ public function insert_reviews_reating(Request $req){
 }
 
 
+public function sub_product_view($id){
+
+    $results = \DB::select("SELECT aff_sub_discount_product.* , affiliation_product.address AS affiliation_product_address , affiliation_product.title  AS store_name FROM  aff_sub_discount_product LEFT JOIN affiliation_product ON affiliation_product.id = aff_sub_discount_product.affiliation_product_id WHERE affiliation_product.id=$id");
+
+
+
+
+return view('sub_product_view',['data'=>$results]);
+}
+
+
 }
 

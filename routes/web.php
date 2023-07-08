@@ -122,6 +122,12 @@ Route::get('/gallery_view',function(){
     return view("gallery_view");
 });
 
+Route::get('/sub_product_view/{id}','App\Http\Controllers\HomeController@sub_product_view');
+
+
+
+
+
 
 
 
