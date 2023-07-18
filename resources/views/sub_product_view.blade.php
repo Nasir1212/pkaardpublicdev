@@ -35,11 +35,16 @@
         <div class="row">
            
             <div class="ml-2 col-sm-12 col-md-6 col-lg-6">
-                <div> <h5>{{$data[0]->store_name}}</h5></div>
+                <div> <h5>
+                    @if(count($data) >0)
+                    {{$data[0]->store_name}}
+                    @endif
+                
+                </h5></div>
             </div>
             
             <div class="col-sm-12 col-md-4 col-lg-4">
-                <div> <b>Total  : <?php count($data); ?> </b>  <span id="show_total_post"></span></div>
+                <div> <b>Total  :{{count($data)}} </b>  <span id="show_total_post"></span></div>
             </div>
 
         </div>
@@ -94,8 +99,7 @@
                      
                     </div>
                     <div class="col-6">
-                       
-                        <a class="btn btn-sm btn-info btn-block" href="/product_details_view{{$d->id}}">See More &#8250;</a>
+                        <a class="btn btn-sm btn-info btn-block" href="/sub_product_details_view/{{$d->id}}">See More &#8250;</a>
                     </div>
                 </div>
             </div>

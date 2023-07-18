@@ -112,6 +112,12 @@ Route::get('/reviews_reating_push_view',function(){
  return  view("reviews_reating_push_view");
 });
 
+
+Route::get('/sub_reviews_reating_push_view',function(){
+    return  view("sub_reviews_reating_push_view");
+   });
+   
+
 Route::post('/insert_reviews_reating','App\Http\Controllers\HomeController@insert_reviews_reating');
    
 Route::get('/customer_profile',function(){
@@ -122,7 +128,12 @@ Route::get('/gallery_view',function(){
     return view("gallery_view");
 });
 
+
+
+Route::post('/insert_sub_reviews_reating','App\Http\Controllers\HomeController@insert_sub_reviews_reating');
+
 Route::get('/sub_product_view/{id}','App\Http\Controllers\HomeController@sub_product_view');
+Route::get('/sub_product_details_view/{id}','App\Http\Controllers\HomeController@sub_product_details_view');
 
 
 

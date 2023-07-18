@@ -29,7 +29,6 @@
     height: 100%;
     max-width: 10rem;
 }
-
 .d_c_s_img  img:hover{
     opacity: 1;
 }
@@ -145,9 +144,10 @@ grid-template-columns: repeat(2,1fr);
 }
 
 
+
 </style>
 <section class="">
-   
+   {{-- @dd($product_data); --}}
     <?php
 if(!empty($all_rating)){
 
@@ -234,12 +234,9 @@ if(!empty($all_rating)){
 
 <?php $data =  App\Http\Controllers\HomeController::suggested_product($product_data[0]->category_id); ?>
 
-<?php $rating_comment =  App\Http\Controllers\HomeController::get_product_coment_and_rating($product_data[0]->id); ?>
-
-{{-- @dd($all_rating) --}}
+<?php $rating_comment =  App\Http\Controllers\HomeController::get_product_sub_coment_and_rating($product_data[0]->id); ?>
 
 
-{{-- @dd($data); --}}
 <!--Suggest Product Section -->
 <section class="suggest_product_section">
     <div>
@@ -312,7 +309,7 @@ if(!empty($all_rating)){
     @endif
     <div>
       
-        <button type="button" class="btn btn-info btn-sm mb-5 float-right" id="{{$product_data[0]->id}}" onclick="is_card_login('reviews_reating_push_view',{product_id:{{$product_data[0]->id}}})" > Push Reviews & Reating</button>
+        <button type="button" class="btn btn-info btn-sm mb-5 float-right" id="{{$product_data[0]->id}}" onclick="is_card_login('sub_reviews_reating_push_view',{sub_product_id:{{$product_data[0]->id}}})" > Push Reviews & Reating</button>
     </div>
 </section>
 
@@ -349,9 +346,6 @@ function next_btn(){
  function prev_btn(){
     
    let increment = index--
-
- 
-
     if(increment <= 1){
         index = 1;
     }

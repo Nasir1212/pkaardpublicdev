@@ -11,6 +11,8 @@ use App\Mail\Otp_mail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\OTP;
 use App\Models\Rating_and_comment;
+use App\Models\sub_Rating_and_comment;
+
 
 class HomeController extends Controller
 {
@@ -245,15 +247,58 @@ public function insert_reviews_reating(Request $req){
 }
 
 
+public function insert_sub_reviews_reating(Request $req){
+    $rating= $req->input("rating");
+    $card_id= $req->input("card_id");
+    $sub_product_id	= $req->input("sub_product_id");
+    $comment= $req->input("comment");
+
+    $result = sub_Rating_and_comment::insert([
+        'card_id'=>$card_id,
+        'sub_product_id'=>$sub_product_id	,
+        'comment'=>$comment,
+        'rating'=>$rating,
+        'date'=>date('Y/m/d')
+    ]);
+
+    if($result){
+        return json_encode(['condition'=>true,'message'=>"Successfully inserted"]);
+    }else{
+        return json_decode(['condition'=>false,"message"=>"Inseted failed"]);
+    }
+
+
+}
+
+
+
 public function sub_product_view($id){
 
-    $results = \DB::select("SELECT aff_sub_discount_product.* , affiliation_product.address AS affiliation_product_address , affiliation_product.title  AS store_name FROM  aff_sub_discount_product LEFT JOIN affiliation_product ON affiliation_product.id = aff_sub_discount_product.affiliation_product_id WHERE affiliation_product.id=$id");
-
-
-
-
+$results = \DB::select("SELECT aff_sub_discount_product.* , affiliation_product.address AS affiliation_product_address , affiliation_product.title  AS store_name FROM  aff_sub_discount_product LEFT JOIN affiliation_product ON affiliation_product.id = aff_sub_discount_product.affiliation_product_id WHERE affiliation_product.id=$id");
 return view('sub_product_view',['data'=>$results]);
 }
+
+
+public function sub_product_details_view($id){
+$results = \DB::select("SELECT aff_sub_discount_product.* , districts.name AS district_name , category.category_name,  category.id AS category_id, affiliation_product.address , affiliation_product.title  AS store_name FROM  aff_sub_discount_product LEFT JOIN affiliation_product ON affiliation_product.id = aff_sub_discount_product.affiliation_product_id LEFT JOIN districts ON districts.id = affiliation_product.district_id LEFT JOIN  category ON  category.id = affiliation_product.category_id  WHERE aff_sub_discount_product.id=$id");
+
+$all_rating = \DB::select("SELECT rating  FROM sub_rating_comment  WHERE sub_product_id = '$id'");
+
+return view("sub_product_details_view",['product_data'=>$results,'all_rating'=>$all_rating]);
+
+}
+
+
+
+public static function get_product_sub_coment_and_rating($id){
+
+    //   return Rating_and_comment::where(['product_id'=>$product_id])->get();
+    
+     return \DB::select("SELECT sub_rating_comment.* ,card_registation.full_name AS user_name FROM sub_rating_comment LEFT JOIN card_registation ON sub_rating_comment.sub_product_id = card_registation.card_id WHERE sub_rating_comment.sub_product_id = '$id'");
+    
+    }
+
+
 
 
 }

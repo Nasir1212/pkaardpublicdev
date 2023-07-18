@@ -155,11 +155,11 @@ let index = 1;
             let privilege_info = Number.isInteger(Number(d['privilege'])) == true? `<p><b class="text-muted">Discount : </b>${d['privilege']} %</p>`:`<p><b class="text-muted">Privilege : </b>${d['privilege'].toUpperCase()}</p>`;
 
            if(d['img_path'] ==null || d['img_path'] == ""  ){
-            let img_src = ''
+            let img_src =[]
            }else{
-            console.log("img path")
-            d['img_path'].split(",")
+            img_src = d['img_path'].split(",")
            }
+           console.log(img_src)
 
 
             // let img_src = d['img_path'] !=null ? d['img_path'].split(","):''
