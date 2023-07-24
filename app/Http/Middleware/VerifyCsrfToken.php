@@ -20,6 +20,8 @@ class VerifyCsrfToken extends Middleware
         'send_otp',
         'check_card_otp',
         'insert_reviews_reating',
-        'insert_sub_reviews_reating'
+        'insert_sub_reviews_reating',
+        'check_Registation_number',
+        'add_physical_card_no'
     ];
 }

@@ -128,6 +128,10 @@ Route::get('/gallery_view',function(){
     return view("gallery_view");
 });
 
+Route::get('/card_activation',function(){
+    return view("card_activation");
+});
+
 
 
 Route::post('/insert_sub_reviews_reating','App\Http\Controllers\HomeController@insert_sub_reviews_reating');
@@ -135,8 +139,9 @@ Route::post('/insert_sub_reviews_reating','App\Http\Controllers\HomeController@i
 Route::get('/sub_product_view/{id}','App\Http\Controllers\HomeController@sub_product_view');
 Route::get('/sub_product_details_view/{id}','App\Http\Controllers\HomeController@sub_product_details_view');
 
+Route::post('/check_Registation_number','App\Http\Controllers\HomeController@check_Registation_number');
 
-
+Route::post('/add_physical_card_no','App\Http\Controllers\HomeController@add_physical_card_no');
 
 
 

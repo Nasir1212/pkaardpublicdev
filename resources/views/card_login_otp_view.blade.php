@@ -107,6 +107,8 @@ async function receive_otp(){
             if(result['condition'] == true){
                 sessionStorage.clear();
                 SessionExport.setLocalStorage(result)
+                swal("Thanks !", `Successfully logged `, "success");
+
                 history.go(-2);
 
             }else{
@@ -126,7 +128,7 @@ async function send_otp(){
 
    
     let card_info = {
-        card_id: sessionStorage.card_id
+        phone_number: sessionStorage.phone_number
     }
     resend_btn.disabled = true
     setTimeout(() => {

@@ -39,7 +39,11 @@
 .bg_tomato{
     background: tomato !important;
 }
-
+.customer_profile_table td {
+    font-weight: bold;
+    color: #252424;
+    font-family: 'Roboto Condensed';
+}
 </style>
 
 <section class="mt-5">
@@ -78,6 +82,45 @@
         </div>
     </div>
 
+    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+        <table class="table  table-striped customer_profile_table">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Discribe </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Total Discount(yearly) </td>
+                    <td>430</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Total Discount(monthly) </td>
+                    <td>436</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Total usage </td>
+                    <td>436</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Total Payment </td>
+                    <td>436</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
  
 
    </div>

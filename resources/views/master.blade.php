@@ -139,6 +139,9 @@
                         <li>
                             <a href="/customer_profile">Profile</a>
                         </li>
+                        <li>
+                            <a href="/card_activation">Card Activation </a>
+                        </li>
                          <li>
                             <a href="{{url('about_us')}}">About Us</a>
                         </li>

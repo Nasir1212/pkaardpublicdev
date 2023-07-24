@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\OTP;
 use App\Models\Rating_and_comment;
 use App\Models\sub_Rating_and_comment;
-
+use App\Models\Physical_card_no;
 
 class HomeController extends Controller
 {
@@ -148,19 +148,26 @@ endif;
 }
 
 
-public function check_card_number(Request $req){
+public function check_card_number(Request $req){//This card_number is as a Registation number
 
     $card_id= $req->input("card_id");
-    $valid_card_no =  ltrim($card_id,1509002);
-   $result  =   card_registation::where(['card_id'=>$valid_card_no])->count();
-   $data =   card_registation::where(['card_id'=>$valid_card_no])->get();
-  return json_encode(['card_status'=>$result,"valid_card"=>$data[0]['card_id'],'phone_number'=>$data[0]['phone_number'],'email'=>$data[0]['email']]);
+    // $valid_card_no =  ltrim($card_id,1509002);
+    $count = Physical_card_no::where(['card_no'=>$card_id])->count();
+    if($count >0){
+    $data = Physical_card_no::where(['card_no'=>$card_id])->get();
+    // $data =   card_registation::where(['card_id'=>$valid_card_no])->get();
+    $mail =  card_registation::where(['phone_number'=>$data[0]['phone_no']])->get(['email']);
+    return json_encode(['condition'=>true,"card_no"=>$data[0]['card_no'],'email'=>$mail[0]['email'],'phone_no'=>$data[0]['phone_no']]);
+    }else{
+    return json_encode(["condition"=>false,"message"=>"Your Card is not active "]);
+    }
+  
 
 }
 
 public  function send_otp(Request $req){
-    $card_id= $req->input("card_id");
-   $data = card_registation::where(['card_id'=>$card_id])->get();
+    $phone_number= $req->input("phone_number");
+   $data = card_registation::where(['phone_number'=>$phone_number])->get();
 
    $otp = rand(100000,999999);
    $mail = $data[0]['email'];
@@ -297,7 +304,41 @@ public static function get_product_sub_coment_and_rating($id){
      return \DB::select("SELECT sub_rating_comment.* ,card_registation.full_name AS user_name FROM sub_rating_comment LEFT JOIN card_registation ON sub_rating_comment.sub_product_id = card_registation.card_id WHERE sub_rating_comment.sub_product_id = '$id'");
     
     }
+    public function check_Registation_number(Request $req){//This card_number is as a Registation number
 
+        $card_id= $req->input("card_id");
+        $valid_card_no =  ltrim($card_id,1509002);
+       $result  =   card_registation::where(['card_id'=>$valid_card_no])->count();
+      
+      return json_encode(['card_status'=>$result]);
+    
+    }
+
+    public function add_physical_card_no(Request $req){
+        
+
+        $valid_registation_no =  ltrim($req->input("registation_no"),1509002);
+        $count  =   card_registation::where(['card_id'=>$valid_registation_no,'phone_number'=>$req->input("phone_no")])->count();
+
+        if($count >0){
+          $result = Physical_card_no::insert([
+                'card_no'=>$req->input("card_no"),
+                'phone_no'=>$req->input("phone_no"),
+                'registation_no'=>$req->input("registation_no"),
+            ]);
+            if($result){
+                return json_encode(['condition'=>true,'message'=>"Your Card successfully activated "]);
+            }else{
+                return json_encode(['condition'=>false,"message"=>"Inseted failed"]);
+            }
+        }else{
+            return json_encode(['condition'=>false,"message"=>"Phone number and card number not matched"]);
+
+        }
+
+       
+
+    }
 
 
 
