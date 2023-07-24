@@ -44,11 +44,32 @@
     color: #252424;
     font-family: 'Roboto Condensed';
 }
+
+.customer_blance_container {
+    width: 20rem;
+    margin: 0rem 1rem;
+}
+
+.customer_blance {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: grey;
+    border: 1px solid grey;
+}
 </style>
 
 <section class="mt-5">
     <div class="d-flex justify-content-end " >
         <button class="btn btn-sm btn-danger bg_tomato ">Personal info</button>
+
+        <div class="customer_blance_container d-flex justify-content-between">
+            <div class="customer_blance">203342TK</div>
+            <button class="btn btn-success">More Purchase</button>
+        </div>
     </div>
 <hr/>
    <div class="row ">
@@ -117,7 +138,7 @@
                     <td>Total Payment </td>
                     <td>436</td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>

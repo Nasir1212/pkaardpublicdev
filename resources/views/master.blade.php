@@ -136,10 +136,10 @@
                             <a href="">Carrier</a>
                         </li>
 
-                        <li>
+                        <li class="profile_link">
                             <a href="/customer_profile">Profile</a>
                         </li>
-                        <li>
+                        <li class="card_activation">
                             <a href="/card_activation">Card Activation </a>
                         </li>
                          <li>
@@ -342,6 +342,12 @@
 // });
 
 
+if(localStorage.card){
+document.getElementsByClassName("card_activation")[0].remove();
+}
+else{
+    document.getElementsByClassName("profile_link")[0].remove();
+}
 
     </script>
     
