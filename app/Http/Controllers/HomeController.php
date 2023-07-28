@@ -13,6 +13,8 @@ use App\Models\OTP;
 use App\Models\Rating_and_comment;
 use App\Models\sub_Rating_and_comment;
 use App\Models\Physical_card_no;
+use App\Models\aff_sub_discount_product;
+
 
 class HomeController extends Controller
 {
@@ -295,7 +297,15 @@ return view("sub_product_details_view",['product_data'=>$results,'all_rating'=>$
 
 }
 
+public static function product_info_one($id){
 
+    return Affiliation_product::where(['id'=>$id])->get();
+
+}
+
+public static function sub_product_info_one($id){
+    return aff_sub_discount_product::where(['id'=>$id])->get();
+}
 
 public static function get_product_sub_coment_and_rating($id){
 
@@ -325,6 +335,7 @@ public static function get_product_sub_coment_and_rating($id){
                 'card_no'=>$req->input("card_no"),
                 'phone_no'=>$req->input("phone_no"),
                 'registation_no'=>$req->input("registation_no"),
+                'date'=>date('Y/m/d')
             ]);
             if($result){
                 return json_encode(['condition'=>true,'message'=>"Your Card successfully activated "]);

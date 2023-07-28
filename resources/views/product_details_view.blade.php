@@ -223,7 +223,7 @@ if(!empty($all_rating)){
                
             </div>
             <div class="discount_btn">
-                <a class="btn custom_btn_warning_danger btn-block  chivo_mono" onclick="is_card_login('purchase_details/{{$product_data[0]->id }}')">Get Discount</a>
+                <a class="btn custom_btn_warning_danger btn-block  chivo_mono" onclick="is_card_login('purchase_details/p_id-{{$product_data[0]->id }}')">Get Discount</a>
             </div>
             <br>
 

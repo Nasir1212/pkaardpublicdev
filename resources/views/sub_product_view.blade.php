@@ -95,7 +95,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-6">
-                        <a class="btn btn-sm btn-warning btn-block" onclick="is_card_login('purchase_details/{{$d->id}}"  >Get Discount</a>
+                        <a class="btn btn-sm btn-warning btn-block" onclick="is_card_login('purchase_details/sub_p_id-{{$d->id}}')"  >Get Discount</a>
                      
                     </div>
                     <div class="col-6">

@@ -175,7 +175,7 @@ caption {
                     if(data['condition'] == true){
                         swal("Thanks !", `${data['message']}`, "success");
 
-                        
+                        location.reload();
                     }else{
                         swal("Opps !", `${data['message']}`, "error");
 
