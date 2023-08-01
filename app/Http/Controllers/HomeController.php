@@ -14,6 +14,9 @@ use App\Models\Rating_and_comment;
 use App\Models\sub_Rating_and_comment;
 use App\Models\Physical_card_no;
 use App\Models\aff_sub_discount_product;
+use App\Models\Order_card_holder;
+use App\Models\Card_holder_wallet;
+
 
 
 class HomeController extends Controller
@@ -334,7 +337,7 @@ public static function get_product_sub_coment_and_rating($id){
           $result = Physical_card_no::insert([
                 'card_no'=>$req->input("card_no"),
                 'phone_no'=>$req->input("phone_no"),
-                'registation_no'=>$req->input("registation_no"),
+                'registation_no'=>$valid_registation_no,
                 'date'=>date('Y/m/d')
             ]);
             if($result){
@@ -349,6 +352,86 @@ public static function get_product_sub_coment_and_rating($id){
 
        
 
+    }
+
+    public function confirm_with_promo_code(Request $req){
+
+        
+        $explode_param = explode('-',$req->input("product_table_id"));
+
+        if($explode_param[0]=='p_id'){
+            $affiliation_id =  Affiliation_product::where(['id'=>$explode_param[1]])->get(['company_id']);            
+        }else{
+            $id = aff_sub_discount_product::where(['id'=>$explode_param[1]])->get(['affiliation_product_id']);   
+            $affiliation_id= Affiliation_product::where(['id'=>$id[0]['affiliation_product_id']])->get(['company_id']);
+        }
+      $wallet =   Card_holder_wallet::where(['registation_no'=>$req->input("registation_no")])->get(['wallet']);
+      
+      if($wallet[0]['wallet'] >= 3){
+
+        Card_holder_wallet::where(['registation_no'=>$req->input("registation_no")])->update([
+
+            'wallet'=>$wallet[0]['wallet']-3
+        ]);
+      $result =  Order_card_holder::insert([
+            'card_holder'=>$req->input("registation_no"),
+            'product_table_id'=>$req->input('product_table_id'),
+            'affiliation_id'=>$affiliation_id[0]->company_id,
+            'discount_promo_code'=>$req->input('discount_promo_code'),
+            'date'=>date('Y/m/d')
+        ]);
+        if($result){
+            return json_encode(['condition'=>true,'message'=>"successfully confirm"]);
+        }else{
+            return json_encode(['condition'=>false,"message"=>"confirm failed"]);
+        }
+    }else{
+        return json_encode(['condition'=>false,"message"=>"Your blance is insufficient"]);
+    }
+
+    }
+
+
+
+    public function confirm_without_promo_code (Request $req){
+
+   
+        $explode_param = explode('-',$req->input("product_table_id"));
+
+        if($explode_param[0]=='p_id'){
+            $affiliation_id =  Affiliation_product::where(['id'=>$explode_param[1]])->get(['company_id']);            
+        }else{
+            $id = aff_sub_discount_product::where(['id'=>$explode_param[1]])->get(['affiliation_product_id']);   
+            $affiliation_id= Affiliation_product::where(['id'=>$id[0]['affiliation_product_id']])->get(['company_id']);
+        }
+      $wallet =   Card_holder_wallet::where(['registation_no'=>$req->input("registation_no")])->get(['wallet']);
+      
+      if($wallet[0]['wallet'] >= $req->input("grand_total") ){
+      
+        Card_holder_wallet::where(['registation_no'=>$req->input("registation_no")])->update([
+
+            'wallet'=>$wallet[0]['wallet'] - $req->input("grand_total")
+        ]);
+      $result =  Order_card_holder::insert([
+            'card_holder'=>$req->input("registation_no"),
+            'product_table_id'=>$req->input('product_table_id'),
+            'affiliation_id'=>$affiliation_id[0]->company_id,
+            'discount_promo_code'=>$req->input('discount_promo_code'),
+            'payable_price'=>$req->input('payable_price'),
+            'date'=>date('Y/m/d')
+        ]);
+        if($result){
+            return json_encode(['condition'=>true,'message'=>"successfully confirm"]);
+        }else{
+            return json_encode(['condition'=>false,"message"=>"confirm failed"]);
+        }
+    }else{
+        return json_encode(['condition'=>false,"message"=>"Your blance is insufficient"]);
+    }
+
+
+
+        
     }
 
 

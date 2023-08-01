@@ -143,6 +143,9 @@ Route::post('/check_Registation_number','App\Http\Controllers\HomeController@che
 
 Route::post('/add_physical_card_no','App\Http\Controllers\HomeController@add_physical_card_no');
 
+Route::post('/confirm_with_promo_code','App\Http\Controllers\HomeController@confirm_with_promo_code');
+Route::post('/confirm_without_promo_code','App\Http\Controllers\HomeController@confirm_without_promo_code');
+
 
 
 

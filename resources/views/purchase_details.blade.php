@@ -25,7 +25,6 @@
     
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $explode_uri = explode('/',$uri);
-
 $explode_param = explode('-',$explode_uri[2]);
 
 if($explode_param[0]=='p_id'){
@@ -40,6 +39,7 @@ if($explode_param[0]=='p_id'){
     
     ?>
   <div class="container">
+    <input type="hidden" id="product_id" value="<?php echo $explode_uri[2]; ?>">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
       <div class="d-flex flex-column">
@@ -101,7 +101,7 @@ if($explode_param[0]=='p_id'){
             <tr>
               <td>2</td>
               <td>Payable Price</td>
-              <td>{{ $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ) }} TK </td>
+              <td> <input type="hidden" id="payable_price" value="<?php echo $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 )  ?>"> {{ $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ) }} TK </td>
             </tr>
     
     
@@ -113,8 +113,8 @@ if($explode_param[0]=='p_id'){
     
             <tr>
               <td>4</td>
-              <td>Discount Percent </td>
-              <td>{{$prduct_status[0]->privilege}} <i class="fa fa-percent" aria-hidden="true"></i>  </td>
+              <td>Discount Promo Code </td>
+              <td> <b  id="discount_promo_code"><?php echo strtoupper(substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6)) ?> </b>  </td>
             </tr>
     
           
@@ -162,7 +162,7 @@ if($explode_param[0]=='p_id'){
     
             <tr>
               <td>3 </td>
-              <td>Platform fee Fee</td>
+              <td>Platform fee </td>
               <td>3 TK </td>
             </tr>
            
@@ -172,7 +172,7 @@ if($explode_param[0]=='p_id'){
               <tr>
                 <td></td>
                 <td> <b>Grand Total</b></td>
-                <td colspan="2"><b><?php echo  $charge_fee+$vat+3; ?> TK </b> </td>
+                <td colspan="2"> <input type="hidden" value="<?php echo  $charge_fee+$vat+3; ?>"  id="grand_total" ><b><?php echo  $charge_fee+$vat+3; ?> TK </b> </td>
                
                 
               </tr>
@@ -187,7 +187,7 @@ if($explode_param[0]=='p_id'){
       </div>
       @if(is_numeric($prduct_status[0]->privilege) == true &&  is_numeric($prduct_status[0]->regular_price) == true)
         <div class="m-2">
-          <button class="btn btn-block custom_btn_warning_danger  d-flex justify-content-center chivo_mono">Confirm</button>
+          <button class="btn btn-block custom_btn_warning_danger  d-flex justify-content-center chivo_mono" onclick="order_without_promo()">Confirm</button>
         </div>
       @endif
         @if($prduct_status[0]->regular_price== null)
@@ -205,7 +205,7 @@ if($explode_param[0]=='p_id'){
               <tr>
                 <td style="text-align: justify">
                 
-                   It doesn't have any fixed regular price. It is dependent on the menu . Please  Save  This Dicount Promo code <b class="text-muted"> <?php echo strtoupper(substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6)) ?></b> after confirmation. Appear discount Promo code on your targeted seller 
+                   It doesn't have any fixed regular price. It is dependent on the menu . Please  Save  This Dicount Promo code <b class="text-muted" id="discount_promo_code"> <?php echo strtoupper(substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6)) ?></b> after confirmation. Appear discount Promo code on your targeted seller 
                 
                 </td>
               </tr>
@@ -252,7 +252,7 @@ if($explode_param[0]=='p_id'){
         </div>
         <div class="col-sm-12  mb-5">
           <div style="display: flex;justify-content: center; margin-top: 1rem;">
-            <button class="btn custom_btn_warning_danger w-100">Confirm</button>
+            <button class="btn custom_btn_warning_danger w-100" onclick="confirm_with_promo_code();">Confirm</button>
           </div>
         </div>
        
@@ -265,6 +265,93 @@ if($explode_param[0]=='p_id'){
 </div>
 </section>
 
+<script>
+ async function confirm_with_promo_code(){
+  
+    let server_data = {};
+    let LocalStorage = SessionExport.getLocalStorage();
+    server_data['discount_promo_code'] = document.getElementById("discount_promo_code").innerText;
+    server_data['registation_no'] =LocalStorage['card_id'] 
+    server_data['product_table_id'] = document.getElementById("product_id").value;
 
+    console.log(server_data)
+
+
+    //confirm_with_promo_code
+    const response = await fetch(`/confirm_with_promo_code`,{
+            method:'POST',
+            body:JSON.stringify(server_data),
+            headers: new Headers({
+            'Content-Type': 'application/json',
+          
+        })
+            
+           
+            
+        } );
+       
+        const result = await response.json();
+        console.log(result)
+        debugger;
+        if(response.status == 200){
+            if(result['condition'] ==true){
+              swal("Thanks !", `${result['message']}`, "success");
+              location.href = `${location.origin}/customer_profile`;
+
+            }else{
+              swal("Opps !", `${result['message']}`, "error");
+            }
+         }else{
+          swal("Opps !", `Something went wrong`, "error");
+
+         }
+        }
+
+
+
+
+        async function order_without_promo () {
+          let server_data = {};
+          let LocalStorage = SessionExport.getLocalStorage();
+          server_data['discount_promo_code'] = document.getElementById("discount_promo_code").innerText;
+          server_data['registation_no'] =LocalStorage['card_id'] 
+          server_data['product_table_id'] = document.getElementById("product_id").value;
+          server_data['grand_total'] = document.getElementById("grand_total").value;
+          server_data['payable_price'] = document.getElementById("payable_price").value;
+
+
+          console.log(server_data)
+          debugger;
+
+          const response = await fetch(`/confirm_without_promo_code`,{
+            method:'POST',
+            body:JSON.stringify(server_data),
+            headers: new Headers({
+            'Content-Type': 'application/json',
+          
+        })
+            
+           
+            
+        } );
+       
+        const result = await response.json();
+        console.log(result)
+        debugger;
+        if(response.status == 200){
+            if(result['condition'] ==true){
+              swal("Thanks !", `${result['message']}`, "success");
+              location.href = `${location.origin}/customer_profile`;
+
+            }else{
+              swal("Opps !", `${result['message']}`, "error");
+            }
+         }else{
+          swal("Opps !", `Something went wrong`, "error");
+
+         }
+          
+        }
+</script>
 
  @endsection;

@@ -234,6 +234,7 @@
     }
     
 }
+
 @media screen and (max-width: 400px) {
 .subscribe_section input{
     padding-left: 0rem !important;
@@ -241,6 +242,15 @@
 
 .subscribe_section button{
     width: 36% !important;
+}
+
+.customer_blance {
+    width: 38%;
+}
+
+.customer_blance_container {
+    width: 12rem;
+    margin: 0rem 0rem;
 }
 }
 @media screen and (max-width: 360px) {

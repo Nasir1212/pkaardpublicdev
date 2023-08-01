@@ -22,6 +22,8 @@ class VerifyCsrfToken extends Middleware
         'insert_reviews_reating',
         'insert_sub_reviews_reating',
         'check_Registation_number',
-        'add_physical_card_no'
+        'add_physical_card_no',
+        'confirm_with_promo_code',
+        'confirm_without_promo_code'
     ];
 }

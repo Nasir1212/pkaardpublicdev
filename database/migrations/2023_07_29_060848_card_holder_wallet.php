@@ -13,18 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_card_holder', function (Blueprint $table) {
+        Schema::create('card_holder_wallet', function (Blueprint $table) {
 
             $table->id();
-            $table->string('card_holder')->nullable();
-            $table->string('product_table_id')->nullable();
-            $table->string('affiliation_id')->nullable();
-            $table->string('discount_promo_code')->nullable();
-            $table->string('payable_price')->nullable();
-            $table->date('date')->nullable(); 
+            $table->string('registation_no')->nullable();
+            $table->string('wallet')->nullable();
+            
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

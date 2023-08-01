@@ -2,6 +2,32 @@
 
 @section('content')
 <style>
+
+    
+@media screen and (max-width: 400px) {
+.subscribe_section input{
+    padding-left: 0rem !important;
+}
+
+.subscribe_section button{
+    width: 36% !important;
+}
+
+.customer_blance {
+    width: 38% !important;;
+}
+
+.customer_blance_container {
+    width: 10rem !important;
+    margin: 0rem 3px !important;
+}
+
+.history_btn_container {
+    gap: 1px !important;
+ 
+}
+}
+    
 .custom_bg {
     background: linear-gradient(10deg, tomato,#ffff0069);
 
@@ -20,7 +46,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-@keyframes card_bg_animate{
+/* @keyframes card_bg_animate{
 
     0%{ background: linear-gradient(10deg, tomato,#ffff0069);}
     10%{ background: linear-gradient(18deg, tomato,#ffff0069);}
@@ -34,7 +60,7 @@
     90%{ background: linear-gradient(162deg, tomato,#ffff0069);}
     100%{ background: linear-gradient(180deg, tomato,#ffff0069);}
 
-}
+} */
 
 .bg_tomato{
     background: tomato !important;
@@ -46,7 +72,7 @@
 }
 
 .customer_blance_container {
-    width: 20rem;
+    width: 13rem;
     margin: 0rem 1rem;
 }
 
@@ -60,6 +86,36 @@
     color: grey;
     border: 1px solid grey;
 }
+
+.history_btn_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    height: 3rem;
+}
+
+.card.custom_bg {
+    height: 3rem;
+    cursor: pointer
+}
+
+.custom_font_styling {
+    margin: 0rem -1rem;
+}
+h5.Roboto_Condensed {
+    font-size: 14px;
+}
+
+.custom_font_styling b{
+    font-size: 14px;
+}
+
+caption {
+   
+  
+    text-align: center !important;
+    caption-side: top !important;
+}
 </style>
 
 <section class="mt-5">
@@ -67,44 +123,68 @@
         <button class="btn btn-sm btn-danger bg_tomato ">Personal info</button>
 
         <div class="customer_blance_container d-flex justify-content-between">
-            <div class="customer_blance">203342TK</div>
-            <button class="btn btn-success">More Purchase</button>
+            <div class="customer_blance">1000 tk</div>
+            <button class="btn btn-success">Recharge</button>
         </div>
     </div>
 <hr/>
    <div class="row ">
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+    <div class="col-sm-12 col-md-6 col-lg-6 ">
+        <div class="history_btn_container mb-3">
         <div class="card custom_bg">
             <div class="card-body">
-               <div class="custom_font_styling d-flex  justify-content-between"> <h5 class="Roboto_Condensed"><i class="fa fa-shopping-basket text-white"></i> My Purchase</h5> 
+               <div class="custom_font_styling d-flex  justify-content-between"> <h5 class="Roboto_Condensed"><i class="fa fa-shopping-basket text-white"></i> Purchase</h5> 
                 <b class="Roboto_Condensed">8</b>
             </div>
             </div>  
-        </div>
+      
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
         <div class="card custom_bg">
             <div class="card-body">
-               <div  class="custom_font_styling  d-flex  justify-content-between"> <h5 class="Roboto_Condensed"><i class="fa fa-thumbs-up text-white"></i> My Favarite</h5>
+               <div  class="custom_font_styling  d-flex  justify-content-between"> <h5 class="Roboto_Condensed"><i class="fa fa-thumbs-up text-white"></i>Favarite</h5>
                 <b class="Roboto_Condensed">10</b>
             </div>
             </div>
-        </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
         <div class="card custom_bg">
             <div class="card-body">
-               <div  class="custom_font_styling  d-flex  justify-content-between ">  <h5 class="Roboto_Condensed"5><i class="fa fa-paw text-white"></i> Earning Points</h5>
+               <div  class="custom_font_styling  d-flex  justify-content-between ">  <h5 class="Roboto_Condensed"5><i class="fa fa-paw text-white"></i>Points</h5>
                 <b class="Roboto_Condensed">200</b>
             </div>
             </div>
-        </div>
+    </div>
+</div>
+
+<table class="table  customer_profile_table">
+    <caption>Purchase</caption>
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Promo Code </th>
+            <th>Discribe </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>HG2K1B </td>
+            <td>430</td>
+        </tr>
+
+       
+
+    </tbody>
+</table>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+  
+    <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
         <table class="table  table-striped customer_profile_table">
+            <caption>Other history</caption>
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
