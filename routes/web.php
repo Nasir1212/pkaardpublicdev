@@ -145,6 +145,7 @@ Route::post('/add_physical_card_no','App\Http\Controllers\HomeController@add_phy
 
 Route::post('/confirm_with_promo_code','App\Http\Controllers\HomeController@confirm_with_promo_code');
 Route::post('/confirm_without_promo_code','App\Http\Controllers\HomeController@confirm_without_promo_code');
+Route::get('/card_holder_wallet/{registation_no}','App\Http\Controllers\HomeController@card_holder_wallet');
 
 
 

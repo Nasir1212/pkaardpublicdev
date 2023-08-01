@@ -393,9 +393,23 @@ public static function get_product_sub_coment_and_rating($id){
 
 
 
+    public function card_holder_wallet($registation_no){
+      $wallet =   Card_holder_wallet::where(['registation_no'=>$registation_no])->get(['wallet']);
+        if(count($wallet) > 0){
+            return $wallet;
+        }else{
+            return json_encode(['condition'=>false]);
+        }
+
+    }
+
+    public function show_order(){
+        $results = \DB::select("SELECT order_card_holder.*, IF(order_card_holder.   affiliation_product.title, aff_sub_discount_product.title  FROM order_card_holder  ");
+
+    }
     public function confirm_without_promo_code (Request $req){
 
-   
+  
         $explode_param = explode('-',$req->input("product_table_id"));
 
         if($explode_param[0]=='p_id'){

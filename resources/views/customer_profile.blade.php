@@ -116,6 +116,8 @@ caption {
     text-align: center !important;
     caption-side: top !important;
 }
+
+
 </style>
 
 <section class="mt-5">
@@ -123,7 +125,7 @@ caption {
         <button class="btn btn-sm btn-danger bg_tomato ">Personal info</button>
 
         <div class="customer_blance_container d-flex justify-content-between">
-            <div class="customer_blance">1000 tk</div>
+            <div class="customer_blance" id="my_wallet"></div>
             <button class="btn btn-success">Recharge</button>
         </div>
     </div>
@@ -228,5 +230,34 @@ caption {
 
 </section>
 
+
+<script>
+    try {
+
+        
+
+async function load_blance (){
+    
+    let LocalStorage = SessionExport.getLocalStorage();
+    const response = await fetch(`${location.origin}/card_holder_wallet/${LocalStorage['card_id']}`);
+
+        const result = await response.json();
+        console.log(result)
+        if(result['condition'] != false){
+            document.getElementById("my_wallet").innerText =`${result[0]['wallet']} tk`;
+        }else{
+            document.getElementById("my_wallet").innerText =`0.00 tk`;
+
+        }
+       
+}
+load_blance();  
+    } catch (error) {
+        console.log(error)
+    }
+
+
+   
+</script>
 
  @endsection;
