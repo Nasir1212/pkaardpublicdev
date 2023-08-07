@@ -156,6 +156,10 @@ Route::get('/customer_personal_info/{registation_no}','App\Http\Controllers\Home
 
 
 
+Route::get('/registation_link',function(){
+    return view("registation_link");
+});
+
 
 
 
