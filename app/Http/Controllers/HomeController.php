@@ -403,9 +403,11 @@ public static function get_product_sub_coment_and_rating($id){
 
     }
 
-    public function show_order(){
-        $results = \DB::select("SELECT order_card_holder.*, IF(order_card_holder.   affiliation_product.title, aff_sub_discount_product.title  FROM order_card_holder  ");
+    public function show_order($registation_no){
+        $results = \DB::select("SELECT order_card_holder.*,aff_sub_discount_product.title AS aff_sub_title , affiliation_product.title AS aff_title FROM order_card_holder LEFT JOIN aff_sub_discount_product ON CONCAT('sub_p_id-',aff_sub_discount_product.id) = order_card_holder.product_table_id LEFT JOIN affiliation_product ON CONCAT('p_id-',affiliation_product.id) =order_card_holder.product_table_id WHERE order_card_holder.card_holder = $registation_no");
 
+        return $results;
+       
     }
     public function confirm_without_promo_code (Request $req){
 
@@ -446,6 +448,14 @@ public static function get_product_sub_coment_and_rating($id){
 
 
         
+    }
+
+
+    public function customer_personal_info($registation_no){
+        $results = \DB::select("SELECT card_registation.*, physical_card_no.card_no,physical_card_no.date AS card_activation_date FROM card_registation LEFT JOIN  physical_card_no ON card_registation.card_id = physical_card_no.registation_no WHERE card_registation.card_id= $registation_no");
+
+        return $results;
+       
     }
 
 

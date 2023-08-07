@@ -5,20 +5,20 @@
 
     
 @media screen and (max-width: 400px) {
-.subscribe_section input{
+/* .subscribe_section input{
     padding-left: 0rem !important;
 }
 
 .subscribe_section button{
     width: 36% !important;
-}
+} */
 
 .customer_blance {
-    width: 38% !important;;
+    width: 58% !important;
 }
 
 .customer_blance_container {
-    width: 10rem !important;
+    width: 14rem !important;
     margin: 0rem 3px !important;
 }
 
@@ -111,22 +111,28 @@ h5.Roboto_Condensed {
 }
 
 caption {
-   
-  
     text-align: center !important;
     caption-side: top !important;
 }
 
 
+@media screen and (max-width: 360px) {
+
+    table{
+        font-size: 12px;
+    }
+
+}
+
 </style>
 
 <section class="mt-5">
     <div class="d-flex justify-content-end " >
-        <button class="btn btn-sm btn-danger bg_tomato ">Personal info</button>
+        {{-- <button class="btn btn-sm btn-danger bg_tomato ">Personal info</button> --}}
 
         <div class="customer_blance_container d-flex justify-content-between">
             <div class="customer_blance" id="my_wallet"></div>
-            <button class="btn btn-success">Recharge</button>
+            <a href="/recharge_card_holder_view" class="btn btn-success">Recharge</a>
         </div>
     </div>
 <hr/>
@@ -165,18 +171,13 @@ caption {
         <tr>
             <th>#</th>
             <th>Promo Code </th>
-            <th>Discribe </th>
+            <th>Targeted </th>
 
         </tr>
     </thead>
 
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>HG2K1B </td>
-            <td>430</td>
-        </tr>
-
+    <tbody id="promo_code_tbody">
+       
        
 
     </tbody>
@@ -225,6 +226,25 @@ caption {
         </table>
     </div>
  
+    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+        <table class="table  table-striped customer_profile_table">
+            <caption>Personal Info </caption>
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Discribe </th>
+
+                </tr>
+            </thead>
+
+            <tbody id="customer_personal_info">
+               
+
+            </tbody>
+        </table>
+    </div>
+ 
 
    </div>
 
@@ -239,16 +259,87 @@ caption {
 async function load_blance (){
     
     let LocalStorage = SessionExport.getLocalStorage();
-    const response = await fetch(`${location.origin}/card_holder_wallet/${LocalStorage['card_id']}`);
+    const response1 = await fetch(`${location.origin}/card_holder_wallet/${LocalStorage['card_id']}`);
+    const response2 = await fetch(`${location.origin}/show_order/${LocalStorage['card_id']}`);
+    const response3 = await fetch(`${location.origin}/customer_personal_info/${LocalStorage['card_id']}`);
+    let RequestPromise = await Promise.all([response1,response2,response3])
 
-        const result = await response.json();
-        console.log(result)
-        if(result['condition'] != false){
-            document.getElementById("my_wallet").innerText =`${result[0]['wallet']} tk`;
+let card_holder_wallet = await RequestPromise[0].json();
+let show_order = await RequestPromise[1].json();
+let customer_personal_info = await RequestPromise[2].json();
+
+   
+        if(card_holder_wallet['condition'] != false){
+            document.getElementById("my_wallet").innerText =`${card_holder_wallet[0]['wallet']} tk`;
         }else{
             document.getElementById("my_wallet").innerText =`0.00 tk`;
 
         }
+            let view ='';
+            let a='';
+            let i=1;
+        show_order.forEach((data)=>{
+            console.log(data);
+            a = data['aff_title'] ==null? `<a href='sub_product_details_view/${data['product_table_id'].replace("sub_p_id-", "")}' style='color:black;text-decoration:underline'> ${data['aff_sub_title']}</a>`:`<a href='product_details_view/${data['product_table_id'].replace("p_id-", "")}' style='color:black;text-decoration:underline'> ${data['aff_title']}</a>`;
+            view+=`
+            <tr>
+                <td>${i++}</td>
+                <td>${data['discount_promo_code']} </td>
+                <td>${a}</td>
+            </tr>
+
+            `;
+        })
+
+        document.getElementById("promo_code_tbody").innerHTML=view;
+        let view2 ='';
+        customer_personal_info.forEach((data)=>{
+            console.log(data);
+            view2+=`
+            <tr>
+                    <td>1</td>
+                    <td>Name</td>
+                    <td>${data['full_name']}</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Registation No  </td>
+                    <td>1509002${data['card_id']}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Card No  </td>
+                    <td>${data['card_no']}</td>
+                </tr>
+               
+                <tr>
+                    <td>5</td>
+                    <td>Phone No  </td>
+                    <td>${data['phone_number']}</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Email  </td>
+                    <td>${data['email']}</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Card Activation Date</td>
+                    <td>${data['card_activation_date']}</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>Registation Date</td>
+                    <td>${data['register_date']}</td>
+                </tr>
+
+                           `;
+        })
+        document.getElementById("customer_personal_info").innerHTML=view2;
+
        
 }
 load_blance();  

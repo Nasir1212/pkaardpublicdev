@@ -132,6 +132,11 @@ Route::get('/card_activation',function(){
     return view("card_activation");
 });
 
+Route::get('/recharge_card_holder_view',function(){
+    return view("recharge_card_holder_view");
+});
+
+
 
 
 Route::post('/insert_sub_reviews_reating','App\Http\Controllers\HomeController@insert_sub_reviews_reating');
@@ -146,6 +151,8 @@ Route::post('/add_physical_card_no','App\Http\Controllers\HomeController@add_phy
 Route::post('/confirm_with_promo_code','App\Http\Controllers\HomeController@confirm_with_promo_code');
 Route::post('/confirm_without_promo_code','App\Http\Controllers\HomeController@confirm_without_promo_code');
 Route::get('/card_holder_wallet/{registation_no}','App\Http\Controllers\HomeController@card_holder_wallet');
+Route::get('/show_order/{registation_no}','App\Http\Controllers\HomeController@show_order');
+Route::get('/customer_personal_info/{registation_no}','App\Http\Controllers\HomeController@customer_personal_info');
 
 
 
