@@ -158,6 +158,12 @@
         flex-direction: column;
         gap: 4rem;
     }
+
+    .top_slider_container {
+     
+        height: 12rem;
+       
+    }
 }
 
 @media screen and (max-width: 543px){
