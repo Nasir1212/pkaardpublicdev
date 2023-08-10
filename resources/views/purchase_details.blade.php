@@ -95,20 +95,20 @@ if($explode_param[0]=='p_id'){
             <tr>
               <td>1</td>
               <td>Regular Price </td>
-              <td>{{$prduct_status[0]->regular_price}} TK</td>
+              <td>{{$prduct_status[0]->regular_price}}   tk</td>
             </tr>
     
             <tr>
               <td>2</td>
               <td>Payable Price</td>
-              <td> <input type="hidden" id="payable_price" value="<?php echo $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 )  ?>"> {{ $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ) }} TK </td>
+              <td> <input type="hidden" id="payable_price" value="<?php echo round($prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ),2)  ?>"> {{ round( $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ),2) }}   tk </td>
             </tr>
     
     
             <tr>
               <td>3</td>
               <td>Discount </td>
-              <td>{{ $prduct_status[0]->regular_price * $prduct_status[0]->privilege/100  }} TK </td>
+              <td>{{ round($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100,2)  }}   tk </td>
             </tr>
     
             <tr>
@@ -143,27 +143,27 @@ if($explode_param[0]=='p_id'){
               <td> Pkaard Charge fee </td>
               <td><?php
               
-            $payable =   $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 );
-           $charge_fee =  $payable/100;
+            $payable = round( $prduct_status[0]->regular_price - ($prduct_status[0]->regular_price * $prduct_status[0]->privilege/100 ),2);
+           $charge_fee = round($payable/100,2);
 
            echo $charge_fee ;
-              ?>TK </td>
+              ?>  tk </td>
             </tr>
     
             <tr>
               <td>2</td>
               <td> VAT (15%) </td>
-              <td><?php  $vat = $charge_fee*15/100;
+              <td><?php  $vat = round( $charge_fee*15/100, 2);
               echo $vat;
               
-              ?>TK </td>
+              ?>  tk </td>
     
             </tr>
     
             <tr>
               <td>3 </td>
               <td>Platform fee </td>
-              <td>3 TK </td>
+              <td>3   tk </td>
             </tr>
            
             </tbody>
@@ -172,7 +172,8 @@ if($explode_param[0]=='p_id'){
               <tr>
                 <td></td>
                 <td> <b>Grand Total</b></td>
-                <td colspan="2"> <input type="hidden" value="<?php echo  $charge_fee+$vat+3; ?>"  id="grand_total" ><b><?php echo  $charge_fee+$vat+3; ?> TK </b> </td>
+                <td colspan="2"> <input type="hidden" value="<?php echo round($charge_fee+$vat+3,2); ?>"  id="grand_total" ><b><?php echo 
+                round($charge_fee+$vat+3,2); ?>   tk </b> </td>
                
                 
               </tr>
@@ -232,7 +233,7 @@ if($explode_param[0]=='p_id'){
             <tr>
               <td>1 </td>
               <td>Platform fee Fee</td>
-              <td>3 TK </td>
+              <td>3   tk </td>
             </tr>
            
             </tbody>
@@ -241,7 +242,7 @@ if($explode_param[0]=='p_id'){
               <tr>
                 <td></td>
                 <td> <b>Grand Total</b></td>
-                <td colspan="2"><b>3 TK </b> </td>
+                <td colspan="2"><b>3   tk </b> </td>
                
                 
               </tr>
