@@ -125,7 +125,7 @@ coupon etc all needs daily life.
 
     <div class="validity_details">
         <h4 class="font-weight-bold text-uppercase">CAN WE DO ANY FINANCIAL TRANSACTION WITH THIS CARD?
-            ,</h4>
+            </h4>
 
         <p>Not at all. This is not any debit or credit card. It is just a
             Privilege card. To get discount this card must be presented
