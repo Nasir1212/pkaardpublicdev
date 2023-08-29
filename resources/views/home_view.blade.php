@@ -62,64 +62,36 @@ margin: 128px -1.5rem;
 
    
 </style>
+
 <div class="slideing_box_container">
 
     <div class="top_slider_container " id="slider_top">
-        <div class="slider_col slider_col_top">
-            <img src="./assets/images/sliding_to_1.jpeg" alt="">
-        </div>
+       
 
-        <div class="slider_col slider_col_top">
-            <img src="./assets/images/sliding_to_2.jpeg" alt="">
-        </div>
-
-        <div class="slider_col slider_col_top">
-            <img src="./assets/images/sliding_to_3.jpeg" alt="">
-        </div>
-
-        <div class="slider_col slider_col_top">
-            <img src="./assets/images/sliding_to_4.jpeg" alt="">
-        </div>
+   
+    @component('Component.TopSlider')@endcomponent
+  
+ 
     </div>
 
     <div class="bottom_slider_container">
 
-  
-
-    <div class="botto_right_slider_container botto_slider">
-
-        <div class="slider_col bottom_right_slider_col">
-            <img src="./assets/images/sliding_to_bottom_right_1.jpeg" alt="">
-        </div>
-
-        <div class="slider_col bottom_right_slider_col">
-            <img src="./assets/images/sliding_to_bottom_right_2.jpeg" alt="">
-        </div>
-
-      
-
-        
+        @component('Component.LeftBottomSlider')@endcomponent
+            
+        @component('Component.RightBottomSlider')@endcomponent
+                
     </div>
 
-    <div class="bottom_left_slider_container  botto_slider">
-        <div class="slider_col  bottom_left_slider_col">
-            <img src="./assets/images/sliding_to_bottom_left_2.jpeg" alt="">
-        </div>
 
-        <div class="slider_col  bottom_left_slider_col">
-            <img src="./assets/images/sliding_to_bottom_left_1.jpeg" alt="">
-        </div>
-    </div>
 
-    
 
 </div>
-</div>
 
-<div>
+
     
    <form name="searching_product_form">
 <section class="search_home_option card">
+    
     <div class="row card-body">
       
         <div class="col-6">
@@ -169,7 +141,7 @@ margin: 128px -1.5rem;
     
 </section>
 </form> 
-</div>
+
 
 <div class="box_container">
 
@@ -284,46 +256,46 @@ margin: 128px -1.5rem;
 <script>
   
   
-  let slider_col_top= document.getElementsByClassName("slider_col_top")
+//   let slider_col_top= document.getElementsByClassName("slider_col_top")
 
-let bottom_left_slider_col =  document.getElementsByClassName("bottom_left_slider_col")
+// let bottom_left_slider_col =  document.getElementsByClassName("bottom_left_slider_col")
 
 let bottom_right_slider_col =  document.getElementsByClassName("bottom_right_slider_col")
 
 
-let d = 1;
+// let d = 1;
 let r = 1;
-let l = 1;
+// let l = 1;
 setInterval(() => {
-d++;
-r++;
-l++;
-if(d > slider_col_top.length){
-d=1;
 
-}
+r++;
+
+// if(d > slider_col_top.length){
+// d=1;
+
+// }
 
 if(r  > bottom_right_slider_col.length){
    r = 1;
 }
 
-if(l  > left_bottom_slider.length){
-   l = 1;
-}
+// if(l  > left_bottom_slider.length){
+//    l = 1;
+// }
 
-   top_sliding(d)
-   right_bottom_slider(r);
-   left_bottom_slider(l)
+//    top_sliding(d)
+    right_bottom_slider(r);
+//    left_bottom_slider(l)
 
 
 }, 3000);
 
-function top_sliding(value){
-   for (const x of slider_col_top) {
-  x.style.display='none'
-}
-slider_col_top[value-1].style.display='block'
-}
+// function top_sliding(value){
+//    for (const x of slider_col_top) {
+//   x.style.display='none'
+// }
+// slider_col_top[value-1].style.display='block'
+// }
 
 
 function right_bottom_slider(value){
@@ -333,12 +305,12 @@ function right_bottom_slider(value){
 bottom_right_slider_col[value-1].style.display='block'
 }
 
-function left_bottom_slider(value){
-   for (const x of bottom_left_slider_col) {
-  x.style.display='none'
-}
-bottom_left_slider_col[value-1].style.display='block'
-}
+// function left_bottom_slider(value){
+//    for (const x of bottom_left_slider_col) {
+//   x.style.display='none'
+// }
+// bottom_left_slider_col[value-1].style.display='block'
+// }
 
 
 
@@ -431,5 +403,7 @@ bottom_left_slider_col[value-1].style.display='block'
 
    }
 
+   
 </script>
+
  @endsection;

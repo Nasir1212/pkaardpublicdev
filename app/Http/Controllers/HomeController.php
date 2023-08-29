@@ -17,6 +17,9 @@ use App\Models\aff_sub_discount_product;
 use App\Models\Order_card_holder;
 use App\Models\Card_holder_wallet;
 
+use App\Models\TopSliderModel;
+use App\Models\BottomRightSlider;
+use App\Models\BottomLeftSlider;
 
 
 class HomeController extends Controller
@@ -444,12 +447,8 @@ public static function get_product_sub_coment_and_rating($id){
     }else{
         return json_encode(['condition'=>false,"message"=>"Your blance is insufficient"]);
     }
-
-
-
         
     }
-
 
     public function customer_personal_info($registation_no){
         $results = \DB::select("SELECT card_registation.*, physical_card_no.card_no,physical_card_no.date AS card_activation_date FROM card_registation LEFT JOIN  physical_card_no ON card_registation.card_id = physical_card_no.registation_no WHERE card_registation.card_id= $registation_no");
@@ -458,6 +457,11 @@ public static function get_product_sub_coment_and_rating($id){
        
     }
 
+    public static function all_slider_img(){
+
+        return ['TopSlider'=>TopSliderModel::get(),'bottomLeftSlider'=>BottomLeftSlider::get(),'bottomRightSlider'=>BottomRightSlider::get()];
+  
+     }
 
 
 }

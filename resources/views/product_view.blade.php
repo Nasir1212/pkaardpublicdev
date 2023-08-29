@@ -190,7 +190,7 @@ let index = 1;
                            
                             <div class="col-6">
                                
-                                <a class="btn btn-sm btn-info btn-block" href="/sub_product_view\\${d['id']}">See All Discount plane &#8250;</a>
+                                <a class="btn btn-sm btn-info btn-block" href="/sub_product_view\\${d['id']}">See All Discount  &#8250;</a>
                             </div>
                         </div>
                        
