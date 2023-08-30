@@ -62,7 +62,7 @@ margin: 128px -1.5rem;
 
    
 </style>
-
+<section>
 <div class="slideing_box_container">
 
     <div class="top_slider_container " id="slider_top">
@@ -90,59 +90,59 @@ margin: 128px -1.5rem;
 
     
    <form name="searching_product_form">
-<section class="search_home_option card">
-    
-    <div class="row card-body">
-      
-        <div class="col-6">
-            <div class="form-group" style="position:relative" data-select2-id="29">
-             <label for="">Select Category</label>
-             <input type="hidden" name="category">
+    <section class="search_home_option card">
+        
+        <div class="row card-body">
+        
+            <div class="col-6">
+                <div class="form-group" style="position:relative" data-select2-id="29">
+                <label for="">Select Category</label>
+                <input type="hidden" name="category">
 
-                <input type="text" class="form-control custom_form" onfocusin="focusin(this)" onfocusout="focusout(this)" onkeyup="search_category(this);" placeholder="Select Category">
-                <div class="drop_down_bottom d-none">
-                    <ul id="drop_list_1">
-                   
-                        @php
-                        $data = App\Http\Controllers\HomeController::all_category();
-                        @endphp   
-                        @foreach($data as $d)
-                        <li data-id="{{$d->id}}">{{$d->category_name}}</li>
-                        @endforeach
-                    </ul>
+                    <input type="text" class="form-control custom_form" onfocusin="focusin(this)" onfocusout="focusout(this)" onkeyup="search_category(this);" placeholder="Select Category">
+                    <div class="drop_down_bottom d-none">
+                        <ul id="drop_list_1">
+                    
+                            @php
+                            $data = App\Http\Controllers\HomeController::all_category();
+                            @endphp   
+                            @foreach($data as $d)
+                            <li data-id="{{$d->id}}">{{$d->category_name}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                
                 </div>
-               
-              </div>
 
-        </div>
-        <div class="col-6">
-            <div class="form-group" style="position:relative" data-select2-id="29">
-                <label for="">Select District</label>
-                <input type="hidden" name="district">
-                   <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select District">
-                   <div class="drop_down_bottom  dist d-none ">
-                       <ul id="drop_list_2">
-                             
-                       </ul>
-                   </div>
-                  
-                 </div>
-          
+            </div>
+            <div class="col-6">
+                <div class="form-group" style="position:relative" data-select2-id="29">
+                    <label for="">Select District</label>
+                    <input type="hidden" name="district">
+                    <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select District">
+                    <div class="drop_down_bottom  dist d-none ">
+                        <ul id="drop_list_2">
+                                
+                        </ul>
+                    </div>
+                    
+                    </div>
+            
+            </div>
+
+            <div class="col-12">
+                <div class="w-100 d-flex justify-content-center mb-1" >
+                
+                    <button onclick="search_product()" type="button" class="btn btn-info btn-block w-50" style="height: 2.3rem">Search </button>
+            
+            </div>
         </div>
 
-        <div class="col-12">
-            <div class="w-100 d-flex justify-content-center mb-1" >
-               
-                 <button onclick="search_product()" type="button" class="btn btn-info btn-block w-50">Search </button>
-          
-        </div>
-    </div>
-
-    
-</section>
+        
+    </section>
 </form> 
 
-
+<div>
 <div class="box_container">
 
     <div class="box box_relative">
@@ -249,7 +249,8 @@ margin: 128px -1.5rem;
 
 
 </div>
-
+</div>
+</section>
 
 
 

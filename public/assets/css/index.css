@@ -292,7 +292,6 @@ footer {
   gap: 0.2rem;
 
 }
-login
 .box_text h4 {
   color: #ffc107 !important;
   font-family: fantasy;
@@ -337,12 +336,12 @@ login
 /*Slideing top box designe*/
 
 
-.top_slider_container{
+/* .top_slider_container{
   width: 100%;
   height: 18rem ;
   background-color: orange;
   overflow: hidden;
-}
+} */
 
 .botto_slider{
 
