@@ -131,7 +131,7 @@ coupon etc all needs daily life.
             Privilege card. To get discount this card must be presented
             to the cashier at the time of purchase. This card is valid for
             Pkaard registered customer and Isn't transferable.
-            </p>
+        </p>
     </div>
 
 </main>

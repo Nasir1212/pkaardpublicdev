@@ -429,6 +429,26 @@ if(data['condition']==true){
     }
 
 
+    let ref_code_one =   document.getElementsByClassName('ref_code_one')
+
+for (const ele  of ref_code_one) {
+   
+   ele.addEventListener('keyup',function(){
+       
+      if(this.id != 6 && this.value.length >0){
+    
+       document.getElementById(Number(this.id)+1).focus();
+      }
+      let all_ref_code ='';
+      for (const ele  of ref_code_one) {
+       all_ref_code += ele.value
+      }
+
+      document.getElementsByName('reference_code')[0].value= all_ref_code
+      
+   })
+}
+
     </script>
 
 </body>
