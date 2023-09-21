@@ -241,6 +241,7 @@ if(!empty($all_rating)){
 
 {{-- @dd($data); --}}
 <!--Suggest Product Section -->
+<hr>
 <section class="suggest_product_section">
     <div>
         <h4 class="text-muted chivo_mono suggest_heading">We have suggested for you </h4>

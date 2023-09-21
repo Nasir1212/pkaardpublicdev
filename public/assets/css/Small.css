@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
    .dual_section_sub_navitaion_and_main_section_countainer {
     grid-template-columns: 1fr;
 }
@@ -242,9 +242,10 @@
 }
 
 @media screen and (max-width: 400px) {
-.subscribe_section input{
-    padding-left: 0rem !important;
-}
+    .subscribe_section input {
+        padding-left: 1rem !important;
+        font-size: 13px;
+    }
 
 .subscribe_section button{
     width: 36% !important;
@@ -270,6 +271,16 @@
 
     .header_search_bar {
         width: 14rem;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 320px) {
+    .subscribe_section {
+        width: 17rem;
+      
     }
 
     

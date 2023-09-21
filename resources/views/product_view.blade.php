@@ -177,7 +177,7 @@ let index = 1;
                         <h5 >  ${d['title']}</h5>
                        
                         <div>
-                            <p> <i class="fa fa-map-marker" style="font-size:25px"></i>${d['address']} </p>
+                            <p> <i class="fa fa-map-marker" style="font-size:15px"></i>${d['address']} </p>
                             <p><b class="text-muted" >District</b> ${d['district_name']}</p>
                         </div>
 
@@ -190,7 +190,7 @@ let index = 1;
                            
                             <div class="col-6">
                                
-                                <a class="btn btn-sm btn-info btn-block" href="/sub_product_view\\${d['id']}">See All Discount  &#8250;</a>
+                                <a class="btn btn-sm btn-info btn-block" href="/sub_product_view\\${d['id']}">All Discount  &#8250;</a>
                             </div>
                         </div>
                        
@@ -213,13 +213,13 @@ let index = 1;
                         <h5 >  ${d['title']}</h5>
                        
                         <div>
-                            <p> <i class="fa fa-map-marker" style="font-size:25px"></i>${d['address']} </p>
+                            <p> <i class="fa fa-map-marker" style="font-size:15px"></i>${d['address']} </p>
                             <p><b class="text-muted" >District</b> ${d['district_name']}</p>
                         </div>
 
                         <div>
                            ${privilege_info}
-                            <p><b class="text-muted">Regular Prize : </b> ${d['regular_price']} TK</p>
+                            <p class="${d['regular_price']==null || d['regular_price']==''?'d-none':''  }"><b class="text-muted">Regular Prize : </b> ${d['regular_price']} TK</p>
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">

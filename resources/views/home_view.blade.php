@@ -88,15 +88,15 @@ margin: 128px -1.5rem;
 </div>
 
 
-    
-   <form name="searching_product_form">
-    <section class="search_home_option card">
-        
+    <div>
+        <form name="searching_product_form">
+        <section class="search_home_option card">
+
         <div class="row card-body">
-        
+
             <div class="col-6">
                 <div class="form-group" style="position:relative" data-select2-id="29">
-                <label for="">Select Category</label>
+                <label for=""> Category</label>
                 <input type="hidden" name="category">
 
                     <input type="text" class="form-control custom_form" onfocusin="focusin(this)" onfocusout="focusout(this)" onkeyup="search_category(this);" placeholder="Select Category">
@@ -117,7 +117,7 @@ margin: 128px -1.5rem;
             </div>
             <div class="col-6">
                 <div class="form-group" style="position:relative" data-select2-id="29">
-                    <label for="">Select District</label>
+                    <label for=""> District</label>
                     <input type="hidden" name="district">
                     <input type="text" class="form-control custom_form "  onfocusin="focusin(this)" onfocusout="focusout(this)"  onkeyup="search_district(this);" placeholder="Select District">
                     <div class="drop_down_bottom  dist d-none ">
@@ -138,12 +138,12 @@ margin: 128px -1.5rem;
             </div>
         </div>
 
-        
-    </section>
-</form> 
 
+        </section>
+        </form> 
+    </div>
 <div>
-<div class="box_container">
+<div class="box_container d-none">
 
     <div class="box box_relative">
         <div class="box_img box_absolute">
@@ -250,6 +250,11 @@ margin: 128px -1.5rem;
 
 </div>
 </div>
+
+@component("Component.Box_model")@endcomponent
+@component("Component.Save_money")@endcomponent
+@component('Component.Accordion')@endcomponent
+
 </section>
 
 

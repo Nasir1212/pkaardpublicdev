@@ -180,7 +180,8 @@
                    
                    ?>"><a href="/product_view?c={{$d->id}}&d=0">{{$d->category_name}}</a></li>
                     @endforeach
-
+                    <br>
+                    <br>
                     </ul>
                    </div>
                 </div>
