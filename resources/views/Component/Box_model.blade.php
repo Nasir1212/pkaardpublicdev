@@ -92,6 +92,10 @@
 .c_h2 {
     font-size: 20px;
 }
+.c_grid {
+  
+    height: 12rem;
+}
 }
 
 @media screen and (max-width: 425px){
@@ -126,9 +130,9 @@
                 </div>
                 </div>
               </div>
-              <div class="flip-box-back bg-danger">
+              <div class="flip-box-back bg-warning">
              
-              <p style="font-size: 0.9rem;" class="text-white text-justify p-3 font-weight-bold">A leading and advertising marketplace founded in 2022. We have around 50,000+ customers based in all over Bangladesh. We are dedicated to providing the best privilege services in Platform Ek Subidha Onk.</p>
+              <p style="font-size: 0.9rem;" class="text-muted text-justify p-3 font-weight-bold">A leading and advertising marketplace founded in 2022. We have around 50,000+ customers based in all over Bangladesh. We are dedicated to providing the best privilege services in Platform Ek Subidha Onk.</p>
               </div>
             </div>
           </div>
@@ -176,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flip-box-back ">
+            <div class="flip-box-back bg-warning">
           
             <p style="font-size: 0.9rem;" class="text-muted text-justify p-3 font-weight-bold">We have around 15+ franchises in all over Bangladesh. We aim to cover the 64th district and strive to give our customers the most privileges, the best selection, and the utmost convenience.</p>
 
