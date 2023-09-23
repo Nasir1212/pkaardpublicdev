@@ -120,7 +120,7 @@
                     <img class="img_box"  src="https://www.svgrepo.com/show/5174/credit-card.svg" alt="">
                 <div style="width: 9rem">
                     <h2 class="c_h2">Card Holder</h2>
-                    <h1 class="c_h1">1011389+</h1>
+                    <h1 class="c_h1">50,000+</h1>
                     <button class="btn btn-sm btn-danger text-start" style="margin-left: -25px; fill: rgb(255, 255, 255);">Explore more <svg style="width: 1rem;height:1rem" viewBox="0 0 16 16" class="svg-wrapper--8ky9e"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 1 0 8 0zM6.467 12l-.934-.933L8.6 8 5.533 4.933 6.467 4l4 4-4 4z" fill-rule="evenodd"></path></svg> </button>
                 </div>
                 </div>
@@ -128,7 +128,7 @@
               </div>
               <div class="flip-box-back bg-danger">
              
-              <p class="text-white text-justify p-3 font-weight-bold">We have 1011389+ cardholder base customers. So We probably provide the customer with our affiliation partnar.</p>
+              <p style="font-size: 0.9rem;" class="text-white text-justify p-3 font-weight-bold">A leading and advertising marketplace founded in 2022. We have around 50,000+ customers based in all over Bangladesh. We are dedicated to providing the best privilege services in Platform Ek Subidha Onk.</p>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@
                             <img  class="img_box"   src=" https://www.svgrepo.com/show/192222/teamwork.svg" alt="">
                         <div style="width: 9rem">
                             <h2 class="c_h2">Affiliation</h2>
-                            <h1 class="c_h1">5059+</h1>
+                            <h1 class="c_h1">200+</h1>
                             <button class="btn btn-sm btn-danger text-start" style="margin-left: -25px; fill: rgb(255, 255, 255);">Explore more <svg style="width: 1rem;height:1rem" viewBox="0 0 16 16" class="svg-wrapper--8ky9e"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 1 0 8 0zM6.467 12l-.934-.933L8.6 8 5.533 4.933 6.467 4l4 4-4 4z" fill-rule="evenodd"></path></svg> </button>
 
                         </div>
@@ -154,7 +154,7 @@
               </div>
               <div class="flip-box-back bg-warning y_axis">
               
-               <p class="text-muted text-justify p-3 font-weight-bold">Pkaard has 5059+ affiliate partners and 321032 Previlise products for Pkaard's cardholders in Bangladesh in any Location. </p>
+               <p style="font-size: 0.9rem;" class="text-muted text-justify p-3 font-weight-bold">Across Bangladesh, we have approximately 200+  affiliate partners. All the privileges and benefits provided by our partners will be available to you. </p>
               </div>
             </div>
         </div>
@@ -168,7 +168,7 @@
                         <img  class="img_box"   src="https://www.svgrepo.com/show/192203/teamwork.svg" alt="">
                     <div style="width: 9rem">
                         <h2 class="c_h2">Franchise </h2>
-                        <h1 class="c_h1">1059+</h1>
+                        <h1 class="c_h1">15+</h1>
                         <button class="btn btn-sm btn-danger text-start" style="margin-left: -25px; fill: rgb(255, 255, 255);">Explore more <svg style="width: 1rem;height:1rem" viewBox="0 0 16 16" class="svg-wrapper--8ky9e"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 1 0 8 0zM6.467 12l-.934-.933L8.6 8 5.533 4.933 6.467 4l4 4-4 4z" fill-rule="evenodd"></path></svg> </button>
 
                     </div>
@@ -178,7 +178,7 @@
             </div>
             <div class="flip-box-back ">
           
-            <p class="text-muted text-justify p-3 font-weight-bold">We are 1059+ Franchise members in the whole of Bangladesh. </p>
+            <p style="font-size: 0.9rem;" class="text-muted text-justify p-3 font-weight-bold">We have around 15+ franchises in all over Bangladesh. We aim to cover the 64th district and strive to give our customers the most privileges, the best selection, and the utmost convenience.</p>
 
             </div>
         </div>

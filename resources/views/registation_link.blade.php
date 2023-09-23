@@ -60,8 +60,8 @@
         
         <div class="form-group col-lg-6 col-md-6 col-sm-12" >
             <label for="">Phone Number ( মোবাইল নাম্বার )  <i class="text-danger">*</i></label>
-            <input type="text" name="phone_number" class="form-control" id="" placeholder="Phone Number">
-            <small id="" class="form-text text-muted"> </small>
+            <input type="text" onkeyup="check_phone_number(this);" name="phone_number" class="form-control" placeholder="Phone Number">
+            <small  class="form-text  text-danger"> </small>
         </div>
         
         
@@ -302,7 +302,7 @@
         
             <div class="form-group col-12 d-flex justify-content-between">
                
-                <button type="button" style="margin-left: 2rem" onclick="pkaard_submit_data()" class="btn btn-warning btn-outline-danger  text-white font-weight-bold ">Submit</button>
+                <button type="button" id="submit_btn" style="margin-left: 2rem" onclick="pkaard_submit_data()" class="btn btn-warning btn-outline-danger  text-white font-weight-bold ">Submit</button>
             </div>
         
             </div>
@@ -449,6 +449,22 @@ for (const ele  of ref_code_one) {
    })
 }
 
+function check_phone_number(e){
+       let pattern = /^\d{11,11}$/g;
+    if(pattern.test(e.value) == true){
+        e.style.border='1px solid green';
+        e.nextElementSibling.innerHTML = ""
+        submit_btn.disabled=false;
+       
+    }else{
+         e.style.border='1px solid red';
+         e.nextElementSibling.innerHTML = "Enter only 11 digit"
+         submit_btn.disabled=true;
+        
+    }
+
+
+}
     </script>
 
 </body>

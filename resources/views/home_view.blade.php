@@ -142,118 +142,121 @@ margin: 128px -1.5rem;
         </section>
         </form> 
     </div>
-<div>
-<div class="box_container d-none">
-
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/travel.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/entertainment.jpeg" alt="">
-        </div>                               
-    </div>
-
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/hotel_and_resort.jpeg" alt="">
-        </div>                               
-    </div>
-   
-      <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/legal_and_financial.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/home_and_decor.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/personal_care_and_service.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/constructions_and_constructor.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/food_and_dinning.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/fashion.jpeg" alt="">
-        </div>                               
-    </div>
-
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/shues.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/photography.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/jewelry.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/real_estate_and_development.jpeg" alt="">
-        </div>                               
-    </div>
-   
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/teleo_and_securites_and_communication.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/logistics_and_transportation.jpeg" alt="">
-        </div>                               
-    </div>
-   
-    <div class="box box_relative">
-        <div class="box_img box_absolute">
-            <img src="./assets//images/business_support_and_supplies.jpeg" alt="">
-        </div>                               
-    </div>
-   
-   
-    
-   
-   
-
-
-</div>
-</div>
 
 @component("Component.Box_model")@endcomponent
 @component("Component.Save_money")@endcomponent
 @component('Component.Accordion')@endcomponent
+
+<div>
+    <div class="box_container">
+    
+           
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/travel.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/entertainment.jpeg" alt="">
+            </div>                               
+        </div>
+    
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/hotel_and_resort.jpeg" alt="">
+            </div>                               
+        </div>
+       
+          <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/legal_and_financial.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/home_and_decor.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/personal_care_and_service.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/constructions_and_constructor.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/food_and_dinning.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/fashion.jpeg" alt="">
+            </div>                               
+        </div>
+    
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/shues.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/photography.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/jewelry.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/real_estate_and_development.jpeg" alt="">
+            </div>                               
+        </div>
+       
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/teleo_and_securites_and_communication.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/logistics_and_transportation.jpeg" alt="">
+            </div>                               
+        </div>
+       
+        <div class="box box_relative">
+            <div class="box_img box_absolute">
+                <img src="./assets//images/business_support_and_supplies.jpeg" alt="">
+            </div>                               
+        </div>
+       
+       
+        
+       
+       
+    
+    
+    </div>
+    </div>
+    
 
 </section>
 

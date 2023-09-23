@@ -34,113 +34,97 @@
 <div class="container-fluid box_shadow">
   <div class="col-12 ">
     <div class="accordion">
-    <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo">What is Pkaard ? <span class="dropdown-toggle float-right"></span></div>
+    <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo">What is the Pkaard?<span class="dropdown-toggle float-right"></span></div>
     <div id="demo" class="collapse ">
-    <p class="answer"> <b>𝗣𝗸𝗮𝗮𝗿𝗱</b>  is a loyalty card which is providing privilege service making your life easier from the moment you wake up to till the night. Card holders can avail special discounts and offers from the top and popular online/offline shops. </p>
+    <p class="answer">𝗣𝗸𝗮𝗮𝗿𝗱 is a loyalty card which is provides privilege service making your life easier from the moment you wake up to till the night. Card holders can avail special discounts and offers from the top and popular online/offline shops. For premium segment cardholder, they can even avail Health,Travels, Shopping, Restaurants, Grocery, Beauty Salon Service, doctor service and other benefits through our app and website. The service aims to provide discounts in all sectors of life a person can imagine. 𝗣𝗸𝗮𝗮𝗿𝗱 provides all services under one roof from Good Morning to Bed. </p>
     </div>
     </div>
 
     <div class="accordion">
-      <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo1">Why will you purchase Pkaard's card? <span class="dropdown-toggle float-right"></span></div>
+      <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo1">What is the purpose of purchasing Pkaard's card? <span class="dropdown-toggle float-right"></span></div>
       <div id="demo1" class="collapse ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+       <p class="answer">
+        You will enjoy our all facilities  and value the privileges and benefits it extends to you. Amazing offers and discounts are just one click away, to benefit from every time using the card.
+       </p>
       </div>
       </div>
 
       <div class="accordion">
-        <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo12">How much price a card of Pkaard's card? <span class="dropdown-toggle float-right"></span></div>
+        <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo12">How much does Pkaard's card cost?<span class="dropdown-toggle float-right"></span></div>
         <div id="demo12" class="collapse ">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <p class="answer">
+            The price depends on whether you have a promotional code or not. If you don't have a promotional code, a minimum amount of card price is required on BDT. The total of purchases excludes delivery charges.
+          </p>
         </div>
         </div>
   
 
       <div class="accordion">
-        <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo2">How can I purchase Pkaard's card? <span class="dropdown-toggle float-right"></span></div>
+        <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo2">What is the process for purchasing Pkaard's card?
+          <span class="dropdown-toggle float-right"></span></div>
         <div id="demo2" class="collapse ">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+         <p class="answer">
+          You can register for our Privilege card by Website or Social Media through or leave your contact details in our official Facebook page. Alternately, you can call 096-77-888-222 and inform the call center that you are interested in Registration for a Privilege card.
+         </p>
         </div>
         </div>
 
         <div class="accordion">
-          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo3">What is the benefit to Pkaard's cardholders? <span class="dropdown-toggle float-right"></span></div>
+          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo3">What is the advantage to Pkaard's cardholders?<span class="dropdown-toggle float-right"></span></div>
           <div id="demo3" class="collapse ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           <p class="answer">
+            The Privilege Card is specially designed to suit your requirements as benefits of include a minimum of upto 5%- 80% discount at our affiliated partner save money and makes life easier, you avail through the privilege card. The service's objective is to provide discounts in every aspect of life imaginable. Moreover, you can earn reward points every time you use your card and redeem them for exciting products.
+           </p>
           </div>
           </div>
 
         <div class="accordion">
-          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo4">How many years is useable Pkaard's card? <span class="dropdown-toggle float-right"></span></div>
+          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo4">Is there any expiration date of this card?<span class="dropdown-toggle float-right"></span></div>
           <div id="demo4" class="collapse ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           <p class="answer">
+            Yes, the validity of this card is for one year. After that, it will be required to renew.
+           </p>
           </div>
           </div>
 
         <div class="accordion">
-          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo5">How can I become a partner as an affiliation partner? <span class="dropdown-toggle float-right"></span></div>
+          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo5">What is the process for becoming a partner as an Pkaard's Affiliation Partner? <span class="dropdown-toggle float-right"></span></div>
           <div id="demo5" class="collapse ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           <p class="answer">
+            You can affiliated with your brand by Website through or leave your contact details in our official Facebook page, our Pkaard Team will communicate with you. Alternately, you can call 096-77-888-222 and inform the call center that you are interested for onboard.
+           </p>
           </div>
           </div>
 
         <div class="accordion">
-          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo51">What is an Affiliate Partner? (And Why You Need One!) <span class="dropdown-toggle float-right"></span></div>
+          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo51">What benefits does Pkaard provide to Affiliation Partners?<span class="dropdown-toggle float-right"></span></div>
           <div id="demo51" class="collapse ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           <p class="answer">
+            For being Affiliated partner you get a lot for your business in a short amount of time. We are boost your brand awareness, grow your audience, enhance your credibility, and unlock new revenue streams.
+           </p>
           </div>
           </div>
 
         <div class="accordion">
-          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo61">What benefit does Pkaard provide for affiliation partners? <span class="dropdown-toggle float-right"></span></div>
+          <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo61">How do I become a Franchise Partner of Pkaard? <span class="dropdown-toggle float-right"></span></div>
           <div id="demo61" class="collapse ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           <p class="answer">
+            You can registration at website through or leave your contact details in our official Facebook page, our Pkaard Team will communicate with you. Alternately, you can call 096-77-888-222 and inform the call center that you are interested for onboard.
+           </p>
           </div>
           </div>
 
           <div class="accordion">
-            <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo624"> What is franchise partner?
+            <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo624"> Can we do any financial transactions with this card?
               <span class="dropdown-toggle float-right"></span>
             </div>
             <div id="demo624" class="collapse ">
-              <p class="answer">Franchise Partner means the individual who has satisfied the qualification requirements, initial training, and performance standards of Franchisor’s Franchise Partner program. The Franchise Partner shall be listed on Appendix A to this Agreement. If Franchisee is a Legal Entity, Franchise Partner shall be authorized to act, and to execute all document, on behalf of Franchisee. All actions by the Franchise Partner shall be binding upon Franchisee. Franchisor shall have no duty to deal with anyone other than the Franchise Partner.</p>
+              <p class="answer">Not at all. This is not a debit or credit card. It's just a card that allows privileges. To get a discount, this card must be presented to the cashier during the purchase process. This card is valid for Pkaard registered customers and isn't transferable.</p>
             </div>
            
             </div>
 
-          <div class="accordion">
-            <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo62"> Will I become a franchise partner with Pkaard?
-              <span class="dropdown-toggle float-right"></span></div>
-            <div id="demo62" class="collapse ">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </div>
-            </div>
-  
-          <div class="accordion">
-            <div type="button" class="toggle_btn" data-toggle="collapse" data-target="#demo63"> What Is a Pkaard's Franchise, and How Does It Work?<span class="dropdown-toggle float-right"></span></div>
-            <div id="demo63" class="collapse ">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </div>
-            </div>
+         
   
 
 
